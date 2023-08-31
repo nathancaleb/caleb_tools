@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/calculator_style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <title>Caleb Tools - Calculator</title>
+</head>
+<body>
+    <main class="main_calculator">
+        <div class="calculator">
+            <div class="calculator_screen" id="calculator_display">
+
+            </div>
+            <div class="calculator_buttons">
+                <div class="buttons_line">
+                    <div class="button" id="ce_button">
+                        CE
+                    </div>
+                    <div class="button" id="c_button">
+                        C
+                    </div>
+                    <div class="button" id="percentage_button" >
+                        %
+                    </div>
+                    <div class="button operate" id="division_button">
+                        ÷
+                    </div>
+                </div>
+                <div class="buttons_line">
+                    <div class="button number" id="7_button" onclick="getNumber(7)">
+                        7
+                    </div>
+                    <div class="button number" id="8_button" onclick="getNumber(8)">
+                        8
+                    </div>
+                    <div class="button number" id="9_button" onclick="getNumber(9)">
+                        9
+                    </div>
+                    <div class="button operate" id="mutiply_button">
+                        X
+                    </div>
+                </div>
+                <div class="buttons_line">
+                    <div class="button number" id="4_button" onclick="getNumber(4)">
+                        4
+                    </div>
+                    <div class="button number" id="5_button" onclick="getNumber(5)">
+                        5
+                    </div>
+                    <div class="button number" id="6_button" onclick="getNumber(6)">
+                        6
+                    </div>
+                    <div class="button operate" id="minus_button">
+                        -
+                    </div>
+                </div>
+                <div class="buttons_line">
+                    <div class="button number" id="1_button" onclick="getNumber(1)">
+                        1
+                    </div>
+                    <div class="button number" id="2_button" onclick="getNumber(2)">
+                        2
+                    </div>
+                    <div class="button number" id="3_button" onclick="getNumber(3)">
+                        3
+                    </div>
+                    <div class="button operate" id="plus_button">
+                        +
+                    </div>
+                </div>
+                <div class="buttons_line">
+                    <div class="button" id="negative_button">
+                        ±
+                    </div>
+                    <div class="button number" id="0_button" onclick="getNumber(0)">
+                        0
+                    </div>
+                    <div class="button" id="decimal_button">
+                        ,
+                    </div>
+                    <div class="button" id="result_button" onclick="result()">
+                        =
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="../script/calculator_script.js"></script>
+</html>

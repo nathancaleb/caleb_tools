@@ -1,0 +1,65 @@
+:root{
+    --poppins: 'Poppins', sans-serif;
+    --rubik: 'Rubik', sans-serif;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    background: #131313;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #141414, #131313);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #141414, #131313); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    display: flex;
+}
+
+.menu_list{
+    height: 100vh;
+    width: 3.125rem;
+}
+
+.menu_button{
+    width: 3.125rem;
+    height: 3.125rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: solid #ffffff 1px;
+    border-bottom: solid #ffffff 1px;;
+    border-bottom-right-radius: 15px;
+    cursor: pointer;
+    background-color: #232f4b;
+    /* background: #000428;
+    background: -webkit-linear-gradient(to top, #09001d, #000428);
+    background: linear-gradient(to top, #09001d, #000428); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.menu_button:hover{
+    background: #000428;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.menu_button img{
+    width: 80%;
+}
+
+.main_container{
+    height: 100vh;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main_container h1{
+    font-family: var(--poppins);
+    font-size: 100px;
+    color: #ffffff;
+    text-shadow: 1px 1px 5px 1px #353535;
+}

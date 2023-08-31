@@ -1,0 +1,110 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000;
+}
+
+.main_calculator{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calculator{
+    /* border: solid gray 1px; */
+    border-radius: 1.25rem;
+    width: 15.625rem;
+    height: 25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: #313131;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #141414, #313131);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #141414, #313131); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    box-shadow: 1px 1px 10px 4px #dbdbdb;
+    font-family: 'Rubik', sans-serif;
+    font-size: 24px;
+    color: #EBEBEB;
+}
+
+.calculator_screen{
+    width: 70%;
+    height: 3.125rem;
+    margin-bottom: 0.625rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.calculator_buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.buttons_line{
+    display: flex;
+    gap: 5px;
+}
+
+.button{
+    box-shadow: 1px 2px 2px #000000;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #202020;
+}
+
+.button:hover{
+    background-color: #313131;
+}
+
+.button:active{
+    color: #44ad65;
+}
+
+.operate{
+    background-color: #44ad65;
+}
+
+.operate:hover{
+    background-color: #06ca44;
+    color: #ffffff;
+}
+
+.operate:active{
+    color:#000000
+}
+
+#ce_button{
+    color: #44ad65;
+}
+
+#ce_button:active{
+    color: #ffffff;
+}
+
+#result_button{
+    background-color: #19be4d;
+}
+
+#result_button:hover{
+    background-color: #ffffff;
+    color: #000000;
+}
