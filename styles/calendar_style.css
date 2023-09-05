@@ -122,6 +122,7 @@ body{
 }
 
 .other_month_day{
-    color: #313131;
+    color: #554d4d;
+    text-shadow: 1px 1px 1px 1px #ffffff;
 }
 

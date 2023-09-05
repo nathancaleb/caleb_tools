@@ -17,6 +17,8 @@ let newDate = new Date();
 let daysOfMonthSelected = [];
 let daysOfLastMonth = [];
 let daysOfNextMonth = [];
+let HANDLEdaysOfLastMonth = [];
+let HANDLEdaysOfNextMonth = [];
 let decrementedDays = 0;
 let incrementedDays = 1;
 let previous = 0;
@@ -38,6 +40,7 @@ let printed = false;
 let daySelectedStatus = false;
 let currentMonthStatus = true;
 let daySelected = ""
+let fullprint = false;
 
 let currentMonth = new Date(newDate.getFullYear(), newDate.getMonth()); //PEGAR O MÊS ATUAL
 let lastMonthDay = new Date(newDate.getFullYear(), newDate.getMonth()+lastMonthDayParameter, 0); //ULTIMO DIA DO MÊS
@@ -47,6 +50,8 @@ function clearAll(){
     daysOfMonthSelected = [];
     daysOfLastMonth = [];
     daysOfNextMonth = [];
+    HANDLEdaysOfLastMonth = [];
+    HANDLEdaysOfNextMonth = [];
     decrementedDays = 0;
     incrementedDays = 0;
     sundayArray = [];
@@ -60,6 +65,8 @@ function clearAll(){
     printed = false;
     daySelectedStatus = false;
     daySelected = "";
+    fullprint = false;
+    
     
 
     let sundayListlenght = sundayList.children.length;
@@ -118,39 +125,38 @@ function getData(){
     // COLHE DIAS DO MÊS PASSADO PARA COMPLETAR A PAGINA DO MÊS ATUAL
     if(daysOfMonthSelected[0].weekDay !== 0){
         for(let i = daysOfMonthSelected[0].weekDay; i > 0; i--){
-            decrementedDays = decrementedDays - 1;
-            let theDay = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), decrementedDays)
-            console.log (theDay)
+            let theDay = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), decrementedDays--)
             daysOfLastMonth[i] = {
                 day: theDay.getDate(),
                 weekDay: theDay.getDay(),
                 month: theDay.getMonth()
             }
         }
-
-        console.log(daysOfLastMonth)
-
+     
         const daysOfLastMonthLength = daysOfLastMonth.length
 
         for(let i = 0; i < daysOfLastMonthLength; i++){
-            if(daysOfLastMonth[i] == undefined || daysOfLastMonth[i] == null){
-                daysOfLastMonth.shift();
+            if(daysOfLastMonth[i] !== undefined){
+                HANDLEdaysOfLastMonth.push(daysOfLastMonth[i])
+            }else{
+                console.log("Posição Vazia - Next -->")
             }
         }
-
-        console.log(daysOfLastMonth)
-
-        // daysOfLastMonth.shift();
-
-        // console.log(daysOfMonthSelected[daysOfMonthSelected.length - 1].weekDay)
+        daysOfLastMonth = HANDLEdaysOfLastMonth;
+        HANDLEdaysOfLastMonth = [];
+        
+        // for(let i = daysOfLastMonthLength-1; i > -1; i--){
+        //     if(daysOfLastMonth[i] == undefined){
+        //         daysOfLastMonth.shift();
+        //     }
+        // }
     }
     // COLHER DIAS DO PROXIMO MES PARA COMPLETAR A PAGINA DO MÊS ATUAL
     if(daysOfMonthSelected[daysOfMonthSelected.length - 1].weekDay !== 6){
         for(let i = daysOfMonthSelected[daysOfMonthSelected.length - 1].weekDay; i < 6; i++){
-            console.log("incremento antes: "+incrementedDays)
             incrementedDays = incrementedDays + 1;
             let theDay = new Date(currentMonth.getFullYear(), currentMonth.getMonth()+1, incrementedDays)
-            console.log("incremento depois: "+incrementedDays)
+            // console.log("incremento depois: "+incrementedDays)
             console.log(theDay)
             daysOfNextMonth[i] = {
                 day: theDay.getDate(),
@@ -162,13 +168,18 @@ function getData(){
         const daysOfNextMonthLength = daysOfNextMonth.length
 
         for(let i = 0; i < daysOfNextMonthLength; i++){
-            if(daysOfNextMonth[i] == undefined || daysOfNextMonth[i] == null){
-                daysOfNextMonth.shift();
+            if(daysOfNextMonth[i] !== undefined){
+                HANDLEdaysOfNextMonth.push(daysOfNextMonth[i])
+            }else{
+                console.log("Posição Vazia - Next -->")
             }
         }
+        daysOfNextMonth = HANDLEdaysOfNextMonth;
+        HANDLEdaysOfNextMonth = [];
     }
 }
 
+// IMPRENSSÃO DO CALENDARIO EM TELA
 function printCalendar(){
     if (daysOfLastMonth[0]){       
             for(let i = 0; i < daysOfLastMonth.length; i++){
@@ -177,42 +188,41 @@ function printCalendar(){
                     createDate.innerHTML = daysOfLastMonth[i].day;
                     sundayList.appendChild(createDate);
                     createDate.classList = "day_box other_month_day";
-                    createDate.setAttribute("id", `day_${daysOfLastMonth[i].day}_${monthList[newDate.getMonth()-1]}`);
+                    createDate.setAttribute("id", `day_${daysOfLastMonth[i].day}_${monthList[currentMonth.getMonth()-1]}`);
                 }
                 else if(i == 1){
                     createDate.innerHTML = daysOfLastMonth[i].day;
                     mondayList.appendChild(createDate);
                     createDate.classList = "day_box other_month_day";
-                    createDate.setAttribute("id", `day_${daysOfLastMonth[i].day}_${monthList[newDate.getMonth()-1]}`);
+                    createDate.setAttribute("id", `day_${daysOfLastMonth[i].day}_${monthList[currentMonth.getMonth()-1]}`);
                 }
                 else if(i == 2){
                     createDate.innerHTML = daysOfLastMonth[i].day;
                     tuesdayList.appendChild(createDate);
                     createDate.classList = "day_box other_month_day";
-                    createDate.setAttribute("id", `day_${daysOfLastMonth[i].day}_${monthList[newDate.getMonth()-1]}`);
+                    createDate.setAttribute("id", `day_${daysOfLastMonth[i].day}_${monthList[currentMonth.getMonth()-1]}`);
                 }
                 else if(i == 3){
                     createDate.innerHTML = daysOfLastMonth[i].day;
                     wednesdayList.appendChild(createDate);
                     createDate.classList = "day_box other_month_day";
-                    createDate.setAttribute("id", `day_${daysOfLastMonth[i].day}_${monthList[newDate.getMonth()-1]}`);
+                    createDate.setAttribute("id", `day_${daysOfLastMonth[i].day}_${monthList[currentMonth.getMonth()-1]}`);
                 }
                 else if(i == 4){
                     createDate.innerHTML = daysOfLastMonth[i].day;
                     thursdayList.appendChild(createDate);
                     createDate.classList = "day_box other_month_day";
-                    createDate.setAttribute("id", `day_${daysOfLastMonth[i].day}_${monthList[newDate.getMonth()-1]}`);
+                    createDate.setAttribute("id", `day_${daysOfLastMonth[i].day}_${monthList[currentMonth.getMonth()-1]}`);
                 }
                 else if(i == 5){
                     createDate.innerHTML = daysOfLastMonth[i].day;
                     fridayList.appendChild(createDate);
                     createDate.classList = "day_box other_month_day";
-                    createDate.setAttribute("id", `day_${daysOfLastMonth[i].day}_${monthList[newDate.getMonth()-1]}`);
+                    createDate.setAttribute("id", `day_${daysOfLastMonth[i].day}_${monthList[currentMonth.getMonth()-1]}`);
                 }
                 
             }
     }
-
 
     for(let i = 0; i < daysOfMonthSelected.length; i++){
         if(daysOfMonthSelected[i].weekDay == 0){
@@ -275,48 +285,96 @@ function printCalendar(){
                 createDate.innerHTML = allWeeks[i][j];
                 sundayList.append(createDate);
                 createDate.classList = "day_box";
-                createDate.setAttribute("id", `day_${allWeeks[i][j]}_${monthList[newDate.getMonth()]}`);
+                createDate.setAttribute("id", `day_${allWeeks[i][j]}_${monthList[currentMonth.getMonth()]}`);
             }
             else if(i == 1){
                 createDate.innerHTML = allWeeks[i][j];
                 mondayList.append(createDate);
                 createDate.classList = "day_box";
-                createDate.setAttribute("id", `day_${allWeeks[i][j]}_${monthList[newDate.getMonth()]}`);
+                createDate.setAttribute("id", `day_${allWeeks[i][j]}_${monthList[currentMonth.getMonth()]}`);
             }
             else if(i == 2){
                 createDate.innerHTML = allWeeks[i][j];
                 tuesdayList.append(createDate);
                 createDate.classList = "day_box";
-                createDate.setAttribute("id", `day_${allWeeks[i][j]}_${monthList[newDate.getMonth()]}`);
+                createDate.setAttribute("id", `day_${allWeeks[i][j]}_${monthList[currentMonth.getMonth()]}`);
             }
             else if(i == 3){
                 createDate.innerHTML = allWeeks[i][j];
                 wednesdayList.append(createDate);
                 createDate.classList = "day_box";
-                createDate.setAttribute("id", `day_${allWeeks[i][j]}_${monthList[newDate.getMonth()]}`);
+                createDate.setAttribute("id", `day_${allWeeks[i][j]}_${monthList[currentMonth.getMonth()]}`);
             }
             else if(i == 4){
                 createDate.innerHTML = allWeeks[i][j];
                 thursdayList.append(createDate);
                 createDate.classList = "day_box";
-                createDate.setAttribute("id", `day_${allWeeks[i][j]}_${monthList[newDate.getMonth()]}`);
+                createDate.setAttribute("id", `day_${allWeeks[i][j]}_${monthList[currentMonth.getMonth()]}`);
             }
             else if(i == 5){
                 createDate.innerHTML = allWeeks[i][j];
                 fridayList.append(createDate);
                 createDate.classList = "day_box";
-                createDate.setAttribute("id", `day_${allWeeks[i][j]}_${monthList[newDate.getMonth()]}`);
+                createDate.setAttribute("id", `day_${allWeeks[i][j]}_${monthList[currentMonth.getMonth()]}`);
             }
             else if(i == 6){
                 createDate.innerHTML = allWeeks[i][j];
                 saturdayList.append(createDate);
                 createDate.classList = "day_box";
-                createDate.setAttribute("id", `day_${allWeeks[i][j]}_${monthList[newDate.getMonth()]}`);
+                createDate.setAttribute("id", `day_${allWeeks[i][j]}_${monthList[currentMonth.getMonth()]}`);
             }
 
         }
       }
-      return printed = true;
+
+      fullprint = true;
+
+      if (daysOfNextMonth[0] && fullprint == true){     
+        console.log(daysOfNextMonth)
+        for(let i = 0; i < daysOfNextMonth.length; i++){
+            console.log(daysOfNextMonth[i])
+            const createDate = document.createElement("li");
+            if(daysOfNextMonth[i].weekDay == 1){
+                createDate.innerHTML = daysOfNextMonth[i].day;
+                mondayList.appendChild(createDate);
+                createDate.classList = "day_box other_month_day";
+                createDate.setAttribute("id", `day_${daysOfNextMonth[i].day}_${monthList[currentMonth.getMonth()+1]}`);
+            }
+            else if(daysOfNextMonth[i].weekDay == 2){
+                createDate.innerHTML = daysOfNextMonth[i].day;
+                tuesdayList.appendChild(createDate);
+                createDate.classList = "day_box other_month_day";
+                createDate.setAttribute("id", `day_${daysOfNextMonth[i].day}_${monthList[currentMonth.getMonth()+1]}`);
+            }
+            else if(daysOfNextMonth[i].weekDay == 3){
+                createDate.innerHTML = daysOfNextMonth[i].day;
+                wednesdayList.appendChild(createDate);
+                createDate.classList = "day_box other_month_day";
+                createDate.setAttribute("id", `day_${daysOfNextMonth[i].day}_${monthList[currentMonth.getMonth()+1]}`);
+            }
+            else if(daysOfNextMonth[i].weekDay == 4){
+                createDate.innerHTML = daysOfNextMonth[i].day;
+                thursdayList.appendChild(createDate);
+                createDate.classList = "day_box other_month_day";
+                createDate.setAttribute("id", `day_${daysOfNextMonth[i].day}_${monthList[currentMonth.getMonth()+1]}`);
+            }
+            else if(daysOfNextMonth[i].weekDay == 5){
+                createDate.innerHTML = daysOfNextMonth[i].day;
+                fridayList.appendChild(createDate);
+                createDate.classList = "day_box other_month_day";
+                createDate.setAttribute("id", `day_${daysOfNextMonth[i].day}_${monthList[currentMonth.getMonth()+1]}`);
+            }
+            else if(daysOfNextMonth[i].weekDay == 6){
+                createDate.innerHTML = daysOfNextMonth[i].day;
+                saturdayList.appendChild(createDate);
+                createDate.classList = "day_box other_month_day";
+                createDate.setAttribute("id", `day_${daysOfNextMonth[i].day}_${monthList[currentMonth.getMonth()+1]}`);
+            }
+            
+        }
+    }
+
+    return printed = true;
 }
 
 function selectedDay(){
