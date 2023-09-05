@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/calendar_style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@100;400&family=Rubik&display=swap" rel="stylesheet">
+    <title>Calendario</title>
+</head>
+<body>
+    <main class="main_calendar">
+        <section class="calendar_section">
+            <div class="calendar">
+                <div class="month_container" id="month_container">
+                    <div class="skip_month_button_box" id="previous_month_button" onclick="previousMonth()">
+                        <img src="../assets/calendar/images/svg/arrow-left-circle.svg" alt="botão redondo com uma seta para a esquerda no meio">
+                    </div>
+                    <span id="month_text"></span>
+                    <div class="skip_month_button_box" id="next_month_button" onclick="nextMonth()">
+                        <img src="../assets/calendar/images/svg/arrow-right-circle.svg" alt="botão redondo com uma seta para a direita no meio">
+                    </div>
+                </div>
+                <div class="week_container">
+                    <ul class="week_days" id="sunday_list">     <li class="week_tittle">DOM</li> </ul>
+                    <ul class="week_days" id="monday_list">     <li class="week_tittle">SEG</li> </ul>
+                    <ul class="week_days" id="tuesday_list">    <li class="week_tittle">TER</li> </ul>
+                    <ul class="week_days" id="wednesday_list">  <li class="week_tittle">QUA</li> </ul>
+                    <ul class="week_days" id="thursday_list">   <li class="week_tittle">QUI</li> </ul>
+                    <ul class="week_days" id="friday_list">     <li class="week_tittle">SEX</li> </ul>
+                    <ul class="week_days" id="saturday_list">   <li class="week_tittle">SAB</li> </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+<script src="../script/calendar_script.js"></script>
+</html>
