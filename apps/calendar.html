@@ -12,6 +12,58 @@
 <body>
     <main class="main_calendar">
         <section class="calendar_section">
+            <div class="month_list_box">
+                <div class="year_month_list"></div>
+                <ul class="month_list">
+                    <li class="month_item" id="janeiro_item" onclick="changeMonth(0)">jan</li>
+                    <li class="month_item" id="fevereiro_item" onclick="changeMonth(1)">fev</li>
+                    <li class="month_item" id="marco_item" onclick="changeMonth(2)">mar</li>
+                    <li class="month_item" id="abril_item" onclick="changeMonth(3)">abr</li>
+                    <li class="month_item" id="maio_item" onclick="changeMonth(4)">mai</li>
+                    <li class="month_item" id="junho_item" onclick="changeMonth(5)">jun</li>
+                    <li class="month_item" id="julho_item" onclick="changeMonth(6)">jul</li>
+                    <li class="month_item" id="agosto_item" onclick="changeMonth(7)">ago</li>
+                    <li class="month_item" id="setembro_item" onclick="changeMonth(8)">set</li>
+                    <li class="month_item" id="outubro_item" onclick="changeMonth(9)">out</li>
+                    <li class="month_item" id="novembro_item" onclick="changeMonth(10)">nov</li>
+                    <li class="month_item" id="dezembro_item" onclick="changeMonth(11)">dez</li>
+                </ul>
+            </div>
+            <div class="year_list_box">
+                <div class="year_list_top">
+                    <div class="skip_year_button_box" id="previous_year_button" onclick="previousYearRange()">
+                        <img src="../assets/calendar/images/svg/arrow-left-circle.svg" alt="botão redondo com uma seta para a esquerda no meio">
+                    </div>                    
+                    
+                    <div class="year_interval_box">2020 - 2029</div>
+
+                    <div class="skip_year_button_box" id="next_year_button" onclick="nextYearRange()">
+                        <img src="../assets/calendar/images/svg/arrow-right-circle.svg" alt="botão redondo com uma seta para a direita no meio">
+                    </div>
+                </div>
+                <ul class="year_list">
+                    <li class="year_item years_out_range" onClick="changeYear()">2019</li>
+                    <li class="year_item" onClick="changeYear()">2020</li>
+                    <li class="year_item" onClick="changeYear()">2021</li>
+                    <li class="year_item" onClick="changeYear()">2022</li>
+                    <li class="year_item" onClick="changeYear()">2023</li>
+                    <li class="year_item" onClick="changeYear()">2024</li>
+                    <li class="year_item" onClick="changeYear()">2025</li>
+                    <li class="year_item" onClick="changeYear()">2026</li>
+                    <li class="year_item" onClick="changeYear()">2027</li>
+                    <li class="year_item" onClick="changeYear()">2028</li>
+                    <li class="year_item" onClick="changeYear()">2029</li>
+                    <li class="year_item years_out_range" onClick="changeYear()">2030</li>
+                </ul>
+            </div>
+            <div class="now_time_box">
+                <div class="clock_box">
+                    <span class="clock_text"></span>
+                </div>
+                <div class="today_box">
+                    <span class="today_text"></span>
+                </div>
+            </div>
             <div class="calendar">
                 <div class="month_container" id="month_container">
                     <div class="skip_month_button_box" id="previous_month_button" onclick="previousMonth()">
@@ -30,6 +82,18 @@
                     <ul class="week_days" id="thursday_list">   <li class="week_tittle">QUI</li> </ul>
                     <ul class="week_days" id="friday_list">     <li class="week_tittle">SEX</li> </ul>
                     <ul class="week_days" id="saturday_list">   <li class="week_tittle">SAB</li> </ul>
+                </div>
+            </div>
+            <div class="options_box">
+                <div class="select_month_box">
+                    <div class="select_month_button" onclick="monthPicker()">
+                        definir mês
+                    </div>
+                </div>
+                <div class="select_year_box">
+                    <div class="select_year_button">
+                        definir ano
+                    </div>
                 </div>
             </div>
         </section>

@@ -24,21 +24,190 @@ body{
     background: linear-gradient(to bottom, #141414, #313131); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     box-shadow: 1px 1px 10px 4px #dbdbdb;
     width: 40%;
-    height: 70%;
+    height: 75%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 40px;
+    border-radius: 20px;
 }
 
-.calendar{
-    text-transform: uppercase;
+/* MÊS PICKER */
+.month_list_box{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.year_month_list{
+    color: #1490e2;
     font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 50px;
+}
+
+.month_list{
+    list-style: none;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    /* border: solid green 1px; */
+    width: 70%;
+}
+
+.month_item{
+    border: 10px #ffffff double;
     color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    padding: 15px;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.month_item:hover{
+    background-color: #1490e2;
+}
+
+/* YEAR PICKER */
+.year_list_box{
+    width: 100%;
+    height: 100%;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    justify-content: center;
+    gap: 20px;
+}
+
+.year_list_top{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.skip_year_button_box{
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.skip_year_button_box:hover{
+    background-color: #0e78be;
+}
+
+.skip_year_button_box img{
+    width: 100%;
+}
+
+.year_interval_box{
+    color: #1490e2;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 50px;
+}
+
+.year_list{
+    list-style: none;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    /* border: solid green 1px; */
+    width: 70%;
+}
+
+.year_item{
+    border: 10px #ffffff double;
+    color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    padding: 15px;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.years_out_range{
+    color: #313131;
+    border: 10px #313131 double;
+}
+
+.year_item:hover{
+    background-color: #1490e2;
+}
+
+/* HOUR BOX */
+.now_time_box{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+}
+
+.clock_box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.clock_text{
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    color: #FFFFFF;
+    font-size: 70px;
+}
+
+/* TODAY BOX */
+.today_box{
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.today_text{
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    color: #1490e2;
+    font-size: 15px;
+}
+
+/* CALENDARIO BOX */
+.calendar{
+    height: 450px;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    color: #FFFFFF;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
 .week_container{
@@ -126,3 +295,37 @@ body{
     text-shadow: 1px 1px 1px 1px #ffffff;
 }
 
+/* OPÇÕES BOX */
+.options_box{
+    width: 80%;
+    height: 40px;
+    display: none;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.select_month_box, .select_year_box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.select_month_button, .select_year_button{
+    width: 140px;
+    height: 40px;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
+    font-size: 15px;
+    border-radius: 40px;
+    border: solid 1px #1490e2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.select_month_button:hover, .select_year_button:hover{
+    background-color: #1490e2;
+    border: solid 1px #ffffff;
+}

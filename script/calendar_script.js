@@ -1,8 +1,9 @@
+// DOM ELEMENTS
+
+const clockText = document.querySelector(".clock_text")
+const todayText = document.querySelector(".today_text")
 const monthText = document.getElementById("month_text");
 const daysContainer = document.getElementById("days_container");
-// const previousMonth = document.getElementById("previous_month_button")
-// const nextMonth = document.getElementById("next_month_button")
-
 const sundayList = document.getElementById("sunday_list");
 const mondayList = document.getElementById("monday_list");
 const tuesdayList = document.getElementById("tuesday_list");
@@ -11,8 +12,20 @@ const thursdayList = document.getElementById("thursday_list");
 const fridayList = document.getElementById("friday_list");
 const saturdayList = document.getElementById("saturday_list");
 
-const monthList = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
+const hourBox = document.querySelector(".now_time_box");
+const todayBox = document.querySelector(".today_box");
+const calendarBox = document.querySelector(".calendar");
+const optionsBox = document.querySelector(".options_box");
+const monthListBox = document.querySelector(".month_list_box")
+const yearMonthBox = document.querySelector(".year_month_list")
 
+const monthPickerSelector = document.querySelectorAll(".month_item")
+
+// VARIAVEL PARA ESCREVER MÊS E SEMANA
+const monthList = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
+const weekList = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"]
+
+// VARIAVEIS PARA MANIPULAÇÃO
 let newDate = new Date();
 let daysOfMonthSelected = [];
 let daysOfLastMonth = [];
@@ -41,11 +54,40 @@ let daySelectedStatus = false;
 let currentMonthStatus = true;
 let daySelected = ""
 let fullprint = false;
+let monthPickerStatus = false;
 
+// VARIAVEIS PARA MANIPULAÇÃO DE DATA
 let currentMonth = new Date(newDate.getFullYear(), newDate.getMonth()); //PEGAR O MÊS ATUAL
 let lastMonthDay = new Date(newDate.getFullYear(), newDate.getMonth()+lastMonthDayParameter, 0); //ULTIMO DIA DO MÊS
 let lastMonth = new Date(newDate.getFullYear(), newDate.getMonth(), +lastMonthParameter); //PEGAR O ULTIMO DIA DO MÊS PASSADO
 
+// FUNÇÃO PARA PEGAR E IMPRIMIR A HORA
+const getHours = () => {
+    const hours = newDate.getHours();
+    const minutes = newDate.getMinutes();
+    const seconds = newDate.getSeconds();
+    const hour = hours < 10 ? `0${hours}` : hours;
+    const minute = minutes < 10 ? `0${minutes}` : minutes;
+    const second = seconds < 10 ? `0${seconds}` : seconds;
+    clockText.innerHTML = `${hour}:${minute}:${second}`;
+}
+  
+  setInterval(() => {
+    getHours()
+  }, 1000)
+
+//FUNÇÃO PARA PEGAR O DIA DE HOJE
+const getToday = () => {
+    const todayDate = newDate.getDate();
+    const todayWeek = newDate.getDay();
+    const todayMonth = newDate.getMonth();
+    const todayYear = newDate.getFullYear();
+    todayText.innerHTML = `${weekList[todayWeek]}, ${todayDate} de ${monthList[todayMonth]} de ${todayYear}`
+}
+
+getToday(); //CHAMANDO A FUNÇÃO HOJE
+
+// FUNÇÃO PARA LIMPAR TODAS AS VARIAVEIS, QUANDO ALTERA O MÊS
 function clearAll(){
     daysOfMonthSelected = [];
     daysOfLastMonth = [];
@@ -105,6 +147,7 @@ function clearAll(){
     }
 }
 
+// FUNÇÃO PARA PEGAR OS VALORES DO DATE
 function getData(){
         monthName = monthList[currentMonth.getMonth()];
         currentYear = currentMonth.getFullYear();
@@ -138,19 +181,12 @@ function getData(){
         for(let i = 0; i < daysOfLastMonthLength; i++){
             if(daysOfLastMonth[i] !== undefined){
                 HANDLEdaysOfLastMonth.push(daysOfLastMonth[i])
-            }else{
-                console.log("Posição Vazia - Next -->")
             }
         }
         daysOfLastMonth = HANDLEdaysOfLastMonth;
         HANDLEdaysOfLastMonth = [];
-        
-        // for(let i = daysOfLastMonthLength-1; i > -1; i--){
-        //     if(daysOfLastMonth[i] == undefined){
-        //         daysOfLastMonth.shift();
-        //     }
-        // }
     }
+
     // COLHER DIAS DO PROXIMO MES PARA COMPLETAR A PAGINA DO MÊS ATUAL
     if(daysOfMonthSelected[daysOfMonthSelected.length - 1].weekDay !== 6){
         for(let i = daysOfMonthSelected[daysOfMonthSelected.length - 1].weekDay; i < 6; i++){
@@ -373,10 +409,10 @@ function printCalendar(){
             
         }
     }
-
     return printed = true;
 }
 
+// FUNÇÃO DE CONTROLE DO DIA SELECIONADO
 function selectedDay(){
 
         sundayList.addEventListener('click', event => {
@@ -465,6 +501,7 @@ function selectedDay(){
 
     }
 
+// FUNÇÃO PARA O BOTÃO PARA IR PARA O MÊS ANTERIOR
 function previousMonth(){
     clearAll();
     previous = previous-1;
@@ -477,15 +514,67 @@ function previousMonth(){
     printCalendar();
 }
 
-getData();
-
-printCalendar();
-
-if(printed == true){
-    selectedDay()
+// FUNÇÃO PARA O BOTÃO PARA IR PARA O MÊS SEGUINTE
+function nextMonth(){
+    clearAll();
+    previous = previous+1;
+    lastMonthDayParameter = lastMonthDayParameter+1
+    lastMonthParameter = lastMonthParameter+1;
+    currentMonth = new Date(newDate.getFullYear(), newDate.getMonth()+previous);
+    lastMonthDay = new Date(newDate.getFullYear(), newDate.getMonth()+lastMonthDayParameter, 0);
+    lastMonth = new Date(newDate.getFullYear(), newDate.getMonth(), +lastMonthParameter);   
+    getData();
+    printCalendar();
 }
 
+// FUNÇÃO PARA VERIFICAR MÊS ATUAL DENTRO DO MÊS PICKER
+function checkPickedCurrentMonth(){
+    if(monthPickerStatus){
+        monthPickerSelector[currentMonth.getMonth()].style.backgroundColor = '#4483ad';
+    }
+}
 
-// let teste = new Date(nova_data.getFullYear(), nova_data.getMonth()+1, 0)
+// FUNÇÃO PARA ABRIR O MÊS PICKER
+function monthPicker(){
+    hourBox.style.display = 'none';
+    todayBox.style.display = 'none';
+    calendarBox.style.display = 'none';
+    optionsBox.style.display = 'none';
+    monthListBox.style.display = 'flex';
+    yearMonthBox.innerHTML = currentMonth.getFullYear()
+    monthPickerStatus = true;
+    checkPickedCurrentMonth();
+}
 
-// console.log(teste)
+// FUNÇÃO PARA ALTERAR O MÊS PELO (MÊS PICKER)
+function changeMonth(selectedMonth){
+    const actualMonth = newDate.getMonth()
+
+    monthPickerSelector[currentMonth.getMonth()].style.removeProperty('background-color');
+
+    clearAll();
+    previous = (selectedMonth - actualMonth);
+    lastMonthDayParameter = previous + 1;
+    lastMonthParameter = previous;
+    currentMonth = new Date(newDate.getFullYear(), newDate.getMonth()+previous);
+    lastMonthDay = new Date(newDate.getFullYear(), newDate.getMonth()+lastMonthDayParameter, 0);
+    lastMonth = new Date(newDate.getFullYear(), newDate.getMonth(), +lastMonthParameter);   
+    getData();
+    printCalendar();
+
+    hourBox.style.display = 'flex';
+    todayBox.style.display = 'flex';
+    calendarBox.style.display = 'flex';
+    optionsBox.style.display = 'flex';
+    monthListBox.style.display = 'none';
+    monthPickerStatus = false;
+}
+
+getData(); //PEGA A INFORMAÇÃO DO DATE - PRIMEIRA CHAMADA
+
+printCalendar(); //IMPRIMI O CALENDARIO NA TELA - PRIMEIRA CHAMADA
+
+if(printed == true){
+    selectedDay() // SE O CALENDARIO ESTIVER IMPRESSO, CHAMO A FUNÇÃO DE SELEÇÃO.
+}
+
