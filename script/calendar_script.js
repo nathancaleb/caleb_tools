@@ -60,6 +60,9 @@ let daySelected = ""
 let fullprint = false;
 let monthPickerStatus = false;
 let yearPickerStatus = false;
+let yearLimit = true;
+
+let firstYearNewRange = 0
 
 // VARIAVEIS PARA MANIPULAÇÃO DE DATA
 let currentMonth = new Date(newDate.getFullYear(), newDate.getMonth()); //PEGAR O MÊS ATUAL
@@ -518,55 +521,23 @@ function selectedDay(){
 
     }
 
-// FUNÇÃO ANTIGA INUTILIZADA --- (FUNÇÃO PARA O BOTÃO PARA IR PARA O MÊS ANTERIOR) ---
-// function previousMonth(){
-//     clearAll();
-//     previous = previous-1;
-//     console.log("lastmonthdayparameter antes: "+lastMonthDayParameter);
-//     lastMonthDayParameter = lastMonthDayParameter-1
-//     console.log("lastmonthdayparameter depois: "+lastMonthDayParameter);
-//     lastMonthParameter = lastMonthParameter-1;
-//     console.log("/////////////////////////////////////////////////")
-//     console.log(currentMonth);
-//     currentMonth = new Date(currentMonth.getFullYear(), newDate.getMonth()+previous);
-//     console.log(currentMonth)
-//     console.log("/////////////////////////////////////////////////")
-//     console.log("/////////////////////////////////////////////////")
-//     console.log(lastMonthDay)
-//     lastMonthDay = new Date(currentMonth.getFullYear(), newDate.getMonth()+lastMonthDayParameter, 0);
-//     console.log(lastMonthDay)
-//     lastMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), +lastMonthParameter);
-//     getData();
-//     printCalendar();
-// }
-
 // FUNÇÃO PARA O BOTÃO PARA IR PARA O MÊS ANTERIOR
 function previousMonth(){
-    clearAll();
-    currentMonth.setMonth(currentMonth.getMonth()-1)
-    lastMonthDay.setMonth(currentMonth.getMonth()+1, 0);
-    getData();
-    printCalendar();
-}
+    if(yearLimit){
+        clearAll();
+        currentMonth.setMonth(currentMonth.getMonth()-1)
+        lastMonthDay.setMonth(currentMonth.getMonth()+1, 0);
+        getData();
+        printCalendar();
 
-// FUNÇÃO ANTIGA INUTILIZADA --- (FUNÇÃO PARA O BOTÃO PARA IR PARA O MÊS SEGUINTE) ---
-// function nextMonth(){
-//     clearAll();
-//     previous = previous+1;
-//     lastMonthDayParameter = lastMonthDayParameter+1
-//     lastMonthParameter = lastMonthParameter+1;
-//     currentMonth = new Date(currentMonth.getFullYear(), newDate.getMonth()+previous);
-//     // if(currentMonth.getMonth == 0){
-//     //     currentMonth = new Date(currentMonth.getFullYear()+1, newDate.getMonth()+previous);
-//     // }
-//     // else if(currentMonth.getMonth == 11){
-//     //     currentMonth = new Date(currentMonth.getFullYear()-1, newDate.getMonth()+previous);
-//     // }
-//     lastMonthDay = new Date(currentMonth.getFullYear(), newDate.getMonth()+lastMonthDayParameter, 0);
-//     lastMonth = new Date(currentMonth.getFullYear(), newDate.getMonth(), +lastMonthParameter);   
-//     getData();
-//     printCalendar();
-// }
+        if(currentMonth.getFullYear() == 1970 && currentMonth.getMonth() == 0){
+            yearLimit = false;
+        }
+    }
+    else{
+        alert("ATENÇÃO! DATA LIMITE ATINGIDA! (Janeiro/1970)")
+    }
+}
 
 // FUNÇÃO PARA O BOTÃO PARA IR PARA O MÊS SEGUINTE
 function nextMonth(){
@@ -601,6 +572,7 @@ function monthPicker(){
     todayBox.style.display = 'none';
     calendarBox.style.display = 'none';
     optionsBox.style.display = 'none';
+    yearListBox.style.display = 'none';
     monthListBox.style.display = 'flex';
     yearMonthBox.innerHTML = currentMonth.getFullYear()
     monthPickerStatus = true;
@@ -613,6 +585,7 @@ function yearPicker(){
     todayBox.style.display = 'none';
     calendarBox.style.display = 'none';
     optionsBox.style.display = 'none';
+    monthListBox.style.display = 'none';
     yearListBox.style.display = 'flex';
 
     for(let i = 0; i < yearPickerSelector.length; i++){
@@ -622,6 +595,7 @@ function yearPicker(){
     let currentSelectedYear = currentMonth.getFullYear();
     const lastNumberSelectedYear = Math.floor(currentSelectedYear % 10);
     let resetToPrintYear = currentSelectedYear - lastNumberSelectedYear;
+    firstYearNewRange = resetToPrintYear
     
     for(let i = 0; i < yearPickerSelector.length; i++){
         yearPickerSelector[i].innerHTML = resetToPrintYear;
@@ -653,6 +627,10 @@ function changeMonth(selectedMonth){
     getData();
     printCalendar();
 
+    if(currentMonth.getFullYear() == 1970 && currentMonth.getMonth() == 0){
+        yearLimit = false;
+    }
+
     hourBox.style.display = 'flex';
     todayBox.style.display = 'flex';
     calendarBox.style.display = 'flex';
@@ -661,24 +639,18 @@ function changeMonth(selectedMonth){
     monthPickerStatus = false;
 }
 
+// FUNÇÃO PARA ALTERAR O ANO PELO (ANO PICKER)
 function changeYear(){
 
     clearAll();
     const pickedYear = parseInt(this.event.srcElement.textContent);
-    // const actualYear = currentMonth.getFullYear();
-    // let yearDiference = 0
-
-    // if(pickedYear > actualYear){
-    //     yearDiference = pickedYear - actualYear;
-    //     currentMonth = new Date(newDate.getFullYear()+yearDiference, currentMonth.getMonth())
-    // }
-    // else if(pickedYear < actualYear){
-    //     yearDiference = actualYear - pickedYear;
-    //     currentMonth = new Date(newDate.getFullYear()-yearDiference, currentMonth.getMonth())
-    // }
     currentMonth.setFullYear(pickedYear)
     getData();
     printCalendar();
+
+    if(currentMonth.getFullYear() == 1970 && currentMonth.getMonth() == 0){
+        yearLimit = false;
+    }
 
     hourBox.style.display = 'flex';
     todayBox.style.display = 'flex';
@@ -687,6 +659,57 @@ function changeYear(){
     yearListBox.style.display = 'none';
     yearPickerStatus = false;
 
+}
+
+// FUNÇÃO PARA ALTERAR O RANGE DO ANO PARA 10 ANOS ATRAS
+function previousYearRange(){
+    
+    if(firstYearNewRange > 1970){
+        for(let i = 0; i < yearPickerSelector.length; i++){
+            yearPickerSelector[i].style.removeProperty('background-color');
+        }
+    
+        resetToPrintYear = firstYearNewRange - 10;
+        firstYearNewRange = resetToPrintYear;
+    
+        for(let i = 0; i < yearPickerSelector.length; i++){
+            yearPickerSelector[i].innerHTML = resetToPrintYear;
+            resetToPrintYear = resetToPrintYear + 1
+        }
+    
+        yearsOutRange[0].innerHTML = parseInt(yearPickerSelector[0].textContent) - 1
+        yearsOutRange[1].innerHTML = parseInt(yearPickerSelector[9].textContent) + 1
+        
+        yearRangeBox.innerHTML = `${yearPickerSelector[0].textContent} - ${parseInt(yearPickerSelector[9].textContent)} `
+    
+        yearPickerStatus = true;
+        checkPickedCurrentYear();
+    }else{alert("ATENÇÃO! ANO LIMITE ATINGIDO (1970)")}
+
+}
+
+// FUNÇÃO PARA ALTERAR O RANGE DO ANO PARA 10 ANOS A FRENTE
+function nextYearRange(){
+    
+    for(let i = 0; i < yearPickerSelector.length; i++){
+        yearPickerSelector[i].style.removeProperty('background-color');
+    }
+
+    resetToPrintYear = firstYearNewRange + 10;
+    firstYearNewRange = resetToPrintYear;
+
+    for(let i = 0; i < yearPickerSelector.length; i++){
+        yearPickerSelector[i].innerHTML = resetToPrintYear;
+        resetToPrintYear = resetToPrintYear + 1
+    }
+
+    yearsOutRange[0].innerHTML = parseInt(yearPickerSelector[0].textContent) - 1
+    yearsOutRange[1].innerHTML = parseInt(yearPickerSelector[9].textContent) + 1
+    
+    yearRangeBox.innerHTML = `${yearPickerSelector[0].textContent} - ${parseInt(yearPickerSelector[9].textContent)} `
+
+    yearPickerStatus = true;
+    checkPickedCurrentYear();
 }
 
 getData(); //PEGA A INFORMAÇÃO DO DATE - PRIMEIRA CHAMADA
