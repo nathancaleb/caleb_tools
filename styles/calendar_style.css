@@ -60,7 +60,6 @@ body{
     justify-content: center;
     gap: 10px;
     flex-wrap: wrap;
-    /* border: solid green 1px; */
     width: 70%;
 }
 
@@ -88,7 +87,7 @@ body{
     width: 100%;
     height: 100%;
     position: relative;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -119,7 +118,7 @@ body{
     width: 100%;
 }
 
-.year_interval_box{
+.year_range_box{
     color: #1490e2;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
@@ -134,7 +133,6 @@ body{
     justify-content: center;
     gap: 10px;
     flex-wrap: wrap;
-    /* border: solid green 1px; */
     width: 70%;
 }
 
@@ -164,7 +162,7 @@ body{
 
 /* HOUR BOX */
 .now_time_box{
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -186,7 +184,7 @@ body{
 
 /* TODAY BOX */
 .today_box{
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -204,7 +202,7 @@ body{
     text-transform: uppercase;
     font-family: 'Roboto', sans-serif;
     color: #FFFFFF;
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
@@ -218,9 +216,10 @@ body{
 }
 
 .month_container{
+    width: 430px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 30px;
     cursor: pointer;
 }
@@ -299,7 +298,7 @@ body{
 .options_box{
     width: 80%;
     height: 40px;
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: space-around;
 }

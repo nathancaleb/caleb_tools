@@ -35,25 +35,25 @@
                         <img src="../assets/calendar/images/svg/arrow-left-circle.svg" alt="botão redondo com uma seta para a esquerda no meio">
                     </div>                    
                     
-                    <div class="year_interval_box">2020 - 2029</div>
+                    <div class="year_range_box"></div>
 
                     <div class="skip_year_button_box" id="next_year_button" onclick="nextYearRange()">
                         <img src="../assets/calendar/images/svg/arrow-right-circle.svg" alt="botão redondo com uma seta para a direita no meio">
                     </div>
                 </div>
                 <ul class="year_list">
-                    <li class="year_item years_out_range" onClick="changeYear()">2019</li>
-                    <li class="year_item" onClick="changeYear()">2020</li>
-                    <li class="year_item" onClick="changeYear()">2021</li>
-                    <li class="year_item" onClick="changeYear()">2022</li>
-                    <li class="year_item" onClick="changeYear()">2023</li>
-                    <li class="year_item" onClick="changeYear()">2024</li>
-                    <li class="year_item" onClick="changeYear()">2025</li>
-                    <li class="year_item" onClick="changeYear()">2026</li>
-                    <li class="year_item" onClick="changeYear()">2027</li>
-                    <li class="year_item" onClick="changeYear()">2028</li>
-                    <li class="year_item" onClick="changeYear()">2029</li>
-                    <li class="year_item years_out_range" onClick="changeYear()">2030</li>
+                    <li class="year_item years_out_range" onClick="changeYear()"></li>
+                    <li class="year_item years_in_range" onClick="changeYear()"></li>
+                    <li class="year_item years_in_range" onClick="changeYear()"></li>
+                    <li class="year_item years_in_range" onClick="changeYear()"></li>
+                    <li class="year_item years_in_range" onClick="changeYear()"></li>
+                    <li class="year_item years_in_range" onClick="changeYear()"></li>
+                    <li class="year_item years_in_range" onClick="changeYear()"></li>
+                    <li class="year_item years_in_range" onClick="changeYear()"></li>
+                    <li class="year_item years_in_range" onClick="changeYear()"></li>
+                    <li class="year_item years_in_range" onClick="changeYear()"></li>
+                    <li class="year_item years_in_range" onClick="changeYear()"></li>
+                    <li class="year_item years_out_range" onClick="changeYear()"></li>
                 </ul>
             </div>
             <div class="now_time_box">
@@ -91,7 +91,7 @@
                     </div>
                 </div>
                 <div class="select_year_box">
-                    <div class="select_year_button">
+                    <div class="select_year_button" onclick="yearPicker()">
                         definir ano
                     </div>
                 </div>

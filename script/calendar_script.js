@@ -18,8 +18,12 @@ const calendarBox = document.querySelector(".calendar");
 const optionsBox = document.querySelector(".options_box");
 const monthListBox = document.querySelector(".month_list_box")
 const yearMonthBox = document.querySelector(".year_month_list")
+const yearListBox = document.querySelector(".year_list_box")
 
 const monthPickerSelector = document.querySelectorAll(".month_item")
+const yearPickerSelector = document.querySelectorAll(".years_in_range")
+const yearsOutRange = document.querySelectorAll(".years_out_range")
+const yearRangeBox = document.querySelector(".year_range_box")
 
 // VARIAVEL PARA ESCREVER MÊS E SEMANA
 const monthList = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
@@ -55,11 +59,16 @@ let currentMonthStatus = true;
 let daySelected = ""
 let fullprint = false;
 let monthPickerStatus = false;
+let yearPickerStatus = false;
 
 // VARIAVEIS PARA MANIPULAÇÃO DE DATA
 let currentMonth = new Date(newDate.getFullYear(), newDate.getMonth()); //PEGAR O MÊS ATUAL
 let lastMonthDay = new Date(newDate.getFullYear(), newDate.getMonth()+lastMonthDayParameter, 0); //ULTIMO DIA DO MÊS
 let lastMonth = new Date(newDate.getFullYear(), newDate.getMonth(), +lastMonthParameter); //PEGAR O ULTIMO DIA DO MÊS PASSADO
+
+const isLeapYear = year => new Date(year, 1, 29).getMonth() === 1;
+// console.log(isLeapYear(2019)); // false
+// console.log(isLeapYear(2020)); //true
 
 // FUNÇÃO PARA PEGAR E IMPRIMIR A HORA
 const getHours = () => {
@@ -165,6 +174,20 @@ function getData(){
         }
     }
 
+    if(currentMonth.getMonth()==1){
+        if(isLeapYear(currentMonth.getFullYear())){
+            if(daysOfMonthSelected[28]==undefined){
+                const beforeLeapDay = daysOfMonthSelected[27].weekDay
+                daysOfMonthSelected[28] = {
+                    day: 29,
+                    weekDay: beforeLeapDay+1,
+                    month: currentMonth.getMonth()
+                }
+            }
+        }
+
+    }
+
     // COLHE DIAS DO MÊS PASSADO PARA COMPLETAR A PAGINA DO MÊS ATUAL
     if(daysOfMonthSelected[0].weekDay !== 0){
         for(let i = daysOfMonthSelected[0].weekDay; i > 0; i--){
@@ -192,8 +215,6 @@ function getData(){
         for(let i = daysOfMonthSelected[daysOfMonthSelected.length - 1].weekDay; i < 6; i++){
             incrementedDays = incrementedDays + 1;
             let theDay = new Date(currentMonth.getFullYear(), currentMonth.getMonth()+1, incrementedDays)
-            // console.log("incremento depois: "+incrementedDays)
-            console.log(theDay)
             daysOfNextMonth[i] = {
                 day: theDay.getDate(),
                 weekDay: theDay.getDay(),
@@ -206,8 +227,6 @@ function getData(){
         for(let i = 0; i < daysOfNextMonthLength; i++){
             if(daysOfNextMonth[i] !== undefined){
                 HANDLEdaysOfNextMonth.push(daysOfNextMonth[i])
-            }else{
-                console.log("Posição Vazia - Next -->")
             }
         }
         daysOfNextMonth = HANDLEdaysOfNextMonth;
@@ -366,9 +385,7 @@ function printCalendar(){
       fullprint = true;
 
       if (daysOfNextMonth[0] && fullprint == true){     
-        console.log(daysOfNextMonth)
         for(let i = 0; i < daysOfNextMonth.length; i++){
-            console.log(daysOfNextMonth[i])
             const createDate = document.createElement("li");
             if(daysOfNextMonth[i].weekDay == 1){
                 createDate.innerHTML = daysOfNextMonth[i].day;
@@ -501,28 +518,61 @@ function selectedDay(){
 
     }
 
+// FUNÇÃO ANTIGA INUTILIZADA --- (FUNÇÃO PARA O BOTÃO PARA IR PARA O MÊS ANTERIOR) ---
+// function previousMonth(){
+//     clearAll();
+//     previous = previous-1;
+//     console.log("lastmonthdayparameter antes: "+lastMonthDayParameter);
+//     lastMonthDayParameter = lastMonthDayParameter-1
+//     console.log("lastmonthdayparameter depois: "+lastMonthDayParameter);
+//     lastMonthParameter = lastMonthParameter-1;
+//     console.log("/////////////////////////////////////////////////")
+//     console.log(currentMonth);
+//     currentMonth = new Date(currentMonth.getFullYear(), newDate.getMonth()+previous);
+//     console.log(currentMonth)
+//     console.log("/////////////////////////////////////////////////")
+//     console.log("/////////////////////////////////////////////////")
+//     console.log(lastMonthDay)
+//     lastMonthDay = new Date(currentMonth.getFullYear(), newDate.getMonth()+lastMonthDayParameter, 0);
+//     console.log(lastMonthDay)
+//     lastMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), +lastMonthParameter);
+//     getData();
+//     printCalendar();
+// }
+
 // FUNÇÃO PARA O BOTÃO PARA IR PARA O MÊS ANTERIOR
 function previousMonth(){
     clearAll();
-    previous = previous-1;
-    lastMonthDayParameter = lastMonthDayParameter-1
-    lastMonthParameter = lastMonthParameter-1;
-    currentMonth = new Date(newDate.getFullYear(), newDate.getMonth()+previous);
-    lastMonthDay = new Date(newDate.getFullYear(), newDate.getMonth()+lastMonthDayParameter, 0);
-    lastMonth = new Date(newDate.getFullYear(), newDate.getMonth(), +lastMonthParameter);   
+    currentMonth.setMonth(currentMonth.getMonth()-1)
+    lastMonthDay.setMonth(currentMonth.getMonth()+1, 0);
     getData();
     printCalendar();
 }
 
+// FUNÇÃO ANTIGA INUTILIZADA --- (FUNÇÃO PARA O BOTÃO PARA IR PARA O MÊS SEGUINTE) ---
+// function nextMonth(){
+//     clearAll();
+//     previous = previous+1;
+//     lastMonthDayParameter = lastMonthDayParameter+1
+//     lastMonthParameter = lastMonthParameter+1;
+//     currentMonth = new Date(currentMonth.getFullYear(), newDate.getMonth()+previous);
+//     // if(currentMonth.getMonth == 0){
+//     //     currentMonth = new Date(currentMonth.getFullYear()+1, newDate.getMonth()+previous);
+//     // }
+//     // else if(currentMonth.getMonth == 11){
+//     //     currentMonth = new Date(currentMonth.getFullYear()-1, newDate.getMonth()+previous);
+//     // }
+//     lastMonthDay = new Date(currentMonth.getFullYear(), newDate.getMonth()+lastMonthDayParameter, 0);
+//     lastMonth = new Date(currentMonth.getFullYear(), newDate.getMonth(), +lastMonthParameter);   
+//     getData();
+//     printCalendar();
+// }
+
 // FUNÇÃO PARA O BOTÃO PARA IR PARA O MÊS SEGUINTE
 function nextMonth(){
     clearAll();
-    previous = previous+1;
-    lastMonthDayParameter = lastMonthDayParameter+1
-    lastMonthParameter = lastMonthParameter+1;
-    currentMonth = new Date(newDate.getFullYear(), newDate.getMonth()+previous);
-    lastMonthDay = new Date(newDate.getFullYear(), newDate.getMonth()+lastMonthDayParameter, 0);
-    lastMonth = new Date(newDate.getFullYear(), newDate.getMonth(), +lastMonthParameter);   
+    currentMonth.setMonth(currentMonth.getMonth()+1)
+    lastMonthDay.setMonth(currentMonth.getMonth()+1, 0);
     getData();
     printCalendar();
 }
@@ -531,6 +581,17 @@ function nextMonth(){
 function checkPickedCurrentMonth(){
     if(monthPickerStatus){
         monthPickerSelector[currentMonth.getMonth()].style.backgroundColor = '#4483ad';
+    }
+}
+
+// FUNÇÃO PARA VERIFICAR ANO ATUAL DENTRO DO ANO PICKER
+function checkPickedCurrentYear(){
+    if(yearPickerStatus){
+        for(let i = 0; i < yearPickerSelector.length; i++){
+            if(yearPickerSelector[i].textContent == currentMonth.getFullYear()){
+                yearPickerSelector[i].style.backgroundColor = '#4483ad';
+            }
+        }
     }
 }
 
@@ -546,6 +607,36 @@ function monthPicker(){
     checkPickedCurrentMonth();
 }
 
+// FUNÇÃO PARA ABRIR O ANO PICKER
+function yearPicker(){
+    hourBox.style.display = 'none';
+    todayBox.style.display = 'none';
+    calendarBox.style.display = 'none';
+    optionsBox.style.display = 'none';
+    yearListBox.style.display = 'flex';
+
+    for(let i = 0; i < yearPickerSelector.length; i++){
+        yearPickerSelector[i].style.removeProperty('background-color');
+    }
+    
+    let currentSelectedYear = currentMonth.getFullYear();
+    const lastNumberSelectedYear = Math.floor(currentSelectedYear % 10);
+    let resetToPrintYear = currentSelectedYear - lastNumberSelectedYear;
+    
+    for(let i = 0; i < yearPickerSelector.length; i++){
+        yearPickerSelector[i].innerHTML = resetToPrintYear;
+        resetToPrintYear = resetToPrintYear + 1
+    }
+
+    yearsOutRange[0].innerHTML = parseInt(yearPickerSelector[0].textContent) - 1
+    yearsOutRange[1].innerHTML = parseInt(yearPickerSelector[9].textContent) + 1
+    
+    yearRangeBox.innerHTML = `${yearPickerSelector[0].textContent} - ${parseInt(yearPickerSelector[9].textContent)} `
+
+    yearPickerStatus = true;
+    checkPickedCurrentYear();
+}
+
 // FUNÇÃO PARA ALTERAR O MÊS PELO (MÊS PICKER)
 function changeMonth(selectedMonth){
     const actualMonth = newDate.getMonth()
@@ -556,9 +647,9 @@ function changeMonth(selectedMonth){
     previous = (selectedMonth - actualMonth);
     lastMonthDayParameter = previous + 1;
     lastMonthParameter = previous;
-    currentMonth = new Date(newDate.getFullYear(), newDate.getMonth()+previous);
-    lastMonthDay = new Date(newDate.getFullYear(), newDate.getMonth()+lastMonthDayParameter, 0);
-    lastMonth = new Date(newDate.getFullYear(), newDate.getMonth(), +lastMonthParameter);   
+    currentMonth = new Date(currentMonth.getFullYear(), newDate.getMonth()+previous);
+    lastMonthDay = new Date(currentMonth.getFullYear(), newDate.getMonth()+lastMonthDayParameter, 0);
+    lastMonth = new Date(currentMonth.getFullYear(), newDate.getMonth(), +lastMonthParameter);   
     getData();
     printCalendar();
 
@@ -568,6 +659,34 @@ function changeMonth(selectedMonth){
     optionsBox.style.display = 'flex';
     monthListBox.style.display = 'none';
     monthPickerStatus = false;
+}
+
+function changeYear(){
+
+    clearAll();
+    const pickedYear = parseInt(this.event.srcElement.textContent);
+    // const actualYear = currentMonth.getFullYear();
+    // let yearDiference = 0
+
+    // if(pickedYear > actualYear){
+    //     yearDiference = pickedYear - actualYear;
+    //     currentMonth = new Date(newDate.getFullYear()+yearDiference, currentMonth.getMonth())
+    // }
+    // else if(pickedYear < actualYear){
+    //     yearDiference = actualYear - pickedYear;
+    //     currentMonth = new Date(newDate.getFullYear()-yearDiference, currentMonth.getMonth())
+    // }
+    currentMonth.setFullYear(pickedYear)
+    getData();
+    printCalendar();
+
+    hourBox.style.display = 'flex';
+    todayBox.style.display = 'flex';
+    calendarBox.style.display = 'flex';
+    optionsBox.style.display = 'flex';
+    yearListBox.style.display = 'none';
+    yearPickerStatus = false;
+
 }
 
 getData(); //PEGA A INFORMAÇÃO DO DATE - PRIMEIRA CHAMADA
