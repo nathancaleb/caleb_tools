@@ -239,6 +239,7 @@ function getData(){
 
 // IMPRENSSÃO DO CALENDARIO EM TELA
 function printCalendar(){
+    // TRATANDO DOS DIAS DO MÊS ANTERIOR
     if (daysOfLastMonth[0]){       
             for(let i = 0; i < daysOfLastMonth.length; i++){
                 const createDate = document.createElement("li");
@@ -282,6 +283,7 @@ function printCalendar(){
             }
     }
 
+    // TRATANDO DOS DIAS DO MÊS ATUAL
     for(let i = 0; i < daysOfMonthSelected.length; i++){
         if(daysOfMonthSelected[i].weekDay == 0){
             sundayArray[i] = daysOfMonthSelected[i].day
@@ -387,6 +389,7 @@ function printCalendar(){
 
       fullprint = true;
 
+      // TRATANDO DOS DIAS DO MÊS SEGUINTE
       if (daysOfNextMonth[0] && fullprint == true){     
         for(let i = 0; i < daysOfNextMonth.length; i++){
             const createDate = document.createElement("li");
