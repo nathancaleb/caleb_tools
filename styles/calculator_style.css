@@ -76,15 +76,15 @@ body{
 }
 
 .button:active{
-    color: #44ad65;
+    color: #4483ad;
 }
 
 .operate{
-    background-color: #44ad65;
+    background-color: #4483ad;
 }
 
 .operate:hover{
-    background-color: #06ca44;
+    background-color: #249cec;
     color: #ffffff;
 }
 
@@ -93,7 +93,7 @@ body{
 }
 
 #ce_button{
-    color: #44ad65;
+    color: #4483ad;
 }
 
 #ce_button:active{
@@ -101,7 +101,7 @@ body{
 }
 
 #result_button{
-    background-color: #19be4d;
+    background-color: #1490e2;
 }
 
 #result_button:hover{

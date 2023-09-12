@@ -31,13 +31,19 @@ body{
     justify-content: center;
     border-right: solid #ffffff 1px;
     border-bottom: solid #ffffff 1px;;
-    border-bottom-right-radius: 15px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
     cursor: pointer;
     background-color: #232f4b;
     /* background: #000428;
     background: -webkit-linear-gradient(to top, #09001d, #000428);
     background: linear-gradient(to top, #09001d, #000428); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
+/* .next_menu_button{
+    border-top: solid #ffffff 1px;
+    border-top-right-radius: 15px;
+} */
 
 .menu_button:hover{
     background: #000428;  /* fallback for old browsers */
