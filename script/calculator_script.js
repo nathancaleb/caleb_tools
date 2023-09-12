@@ -531,7 +531,7 @@ function result(){
         //CHECK IF THE NUMBER STRING HAVE << , >> IF HAVE, CHANGE TO << . >> AND CONVERT TO INT OU FLOAT
         if(n1.includes(",")){
             n1 = n1.replace(",",".");
-            n1=parseFloat(n1).toFixed(2);
+            n1 = parseFloat(n1);
             checkDecimal = true;
         }
         else{
@@ -540,7 +540,7 @@ function result(){
 
         if(n2.includes(",")){
             n2 = n2.replace(",",".");
-            n2=parseFloat(n2).toFixed(2);
+            n2 = parseFloat(n2);
             checkDecimal = true;
         }
         else{
@@ -565,7 +565,10 @@ function result(){
         }
         //IF FOR SUM
             if(checkNegative == true && operate == "sum"){
+                console.log(n1)
+                console.log(n2)
                 resultFinal=n1+n2;
+                console.log(resultFinal)
                 
                 handleResult=resultFinal 
                 n1NegativeStatus=false
@@ -586,6 +589,7 @@ function result(){
                 n2Start = false;
             } //IF FOR SUBTRACT
             else if(checkNegative == true && operate == "subtract"){
+                
                 resultFinal=n1-n2;
 
                 handleResult=resultFinal
