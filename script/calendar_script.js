@@ -70,23 +70,23 @@ let lastMonthDay = new Date(newDate.getFullYear(), newDate.getMonth()+lastMonthD
 let lastMonth = new Date(newDate.getFullYear(), newDate.getMonth(), +lastMonthParameter); //PEGAR O ULTIMO DIA DO MÊS PASSADO
 
 const isLeapYear = year => new Date(year, 1, 29).getMonth() === 1;
-// console.log(isLeapYear(2019)); // false
-// console.log(isLeapYear(2020)); //true
 
 // FUNÇÃO PARA PEGAR E IMPRIMIR A HORA
 const getHours = () => {
-    const hours = newDate.getHours();
-    const minutes = newDate.getMinutes();
-    const seconds = newDate.getSeconds();
+    const currentTime = new Date();
+    const hours = currentTime.getHours();
+    const minutes = currentTime.getMinutes();
+    const seconds = currentTime.getSeconds();
     const hour = hours < 10 ? `0${hours}` : hours;
     const minute = minutes < 10 ? `0${minutes}` : minutes;
     const second = seconds < 10 ? `0${seconds}` : seconds;
+    console.log(`${hour}:${minute}:${second}`)
     clockText.innerHTML = `${hour}:${minute}:${second}`;
 }
   
-  setInterval(() => {
-    getHours()
-  }, 1000)
+setInterval(() => {
+    getHours();
+}, 1000)
 
 //FUNÇÃO PARA PEGAR O DIA DE HOJE
 const getToday = () => {
