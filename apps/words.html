@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/words_style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@100;400&family=Rubik&display=swap" rel="stylesheet">
+    <title>Word Modifier</title>
+</head>
+<body>
+    <main class="main_words">
+        <nav class="nav_words">
+            <ul class="nav_list">
+                <li class="words_btn" id="word_transform_btn">
+                    Maiusculo/Minusculo
+                </li>
+                <li class="words_btn">
+                    TESTE
+                </li>
+                <li class="words_btn" id="word_transform_btn">
+                    TESTE TESTE
+                </li>
+                <li class="words_btn" id="word_transform_btn">
+                    TESTETES TESTE
+                </li>
+            </ul>
+        </nav>
+            <section class="input_section">
+                <div class="input_box">
+                    <textarea name="text_to_work" id="text_to_work" cols="100" rows="10"></textarea>
+                </div>
+            </section>
+            <section class="word_transform_section">
+                <div class="word_transform_box">
+                    <input type="radio" name="word_transform_options" value="uppercase_option">Maiúsculo
+                    <input type="radio" name="word_transform_options" value="lowercase_option">Minúsculo
+                    <input type="radio" name="word_transform_options" value="alternate_option">Auternado
+                    <input type="radio" name="word_transform_options" value="invert_option">Inverter texto
+                    <input type="radio" name="word_transform_options" value="first_letter_word_option">Primeira Letra Palavra
+                </div>
+                <div class="send_form_box">
+                    <button type="submit" form="form_text" value="submit" onclick="transformText()">Transformar</button>
+                </div>
+            </section>
+    </main>
+</body>
+<script src="../script/words_script.js"></script>
+</html>
