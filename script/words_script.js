@@ -1,6 +1,18 @@
 // trazendo a area de texto
 const textContent = document.querySelector("#text_to_work");
 
+// Trazendo botõees do menu principal
+const wordsTransformBtb = document.getElementById("word_transform_btn")
+
+// Trazendo aplicações
+const wordTransformApp = document.getElementById("word_transform_section")
+
+// Menu Functions
+function loadWordTransform(){
+    wordsTransformBtb.classList.add("selected_word_btn");
+    wordTransformApp.style.display = "flex"
+}
+
 // -------------------- WORD TRANSFORM -----------------------
 // Trazendo as opções de tranformação da palavra
 const transformOptions = document.getElementsByName("word_transform_options");

@@ -13,7 +13,7 @@
     <main class="main_words">
         <nav class="nav_words">
             <ul class="nav_list">
-                <li class="words_btn" id="word_transform_btn">
+                <li class="words_btn" id="word_transform_btn" onClick="loadWordTransform()">
                     Maiúsculo/Minúsculo
                 </li>
                 <li class="words_btn">
@@ -27,16 +27,16 @@
                 </li>
             </ul>
         </nav>
-            <section class="input_section">
-                <div class="input_box">
-                    <textarea
-                        name="text_to_work"
-                        id="text_to_work"
-                        cols="100" rows="10"
-                        placeholder="Insira o texto que deseja tratar."></textarea>
-                </div>
-            </section>
-            <section class="word_transform_section">
+        <section class="input_section">
+            <div class="input_box">
+                <textarea
+                    name="text_to_work"
+                    id="text_to_work"
+                    cols="100" rows="10"
+                    placeholder="Insira o texto que deseja tratar."></textarea>
+            </div>
+        </section>
+            <section class="word_transform_section" id="word_transform_section">
                 <div class="word_transform_box">
                     <input type="radio" name="word_transform_options" value="uppercase_option" class="radio_tranform" id="uppercase_option">
                     <label class="radio_tranform_button" for="uppercase_option" id="uppercase_option_label">MAIÚSCULO</label>
