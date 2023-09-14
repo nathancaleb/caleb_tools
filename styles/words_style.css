@@ -152,11 +152,6 @@ body{
     display: none;
 }
 
-.radio_tranform{
-    cursor: pointer;
-    display: none;
-}
-
 .radio_tranform:checked + label{
     background: #000428;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to top, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
@@ -193,7 +188,7 @@ body{
     background: linear-gradient(to top, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.send_form_box{
+.send_tranform_box{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -213,3 +208,104 @@ body{
 .transform_button:hover{
     background: linear-gradient(to top, #004e92, #000428);
 }
+
+/*  ------------------- ALPHABETIC ORDER TAB ------------------- */
+
+.alphabetic_ord_section{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.alphabetic_ord_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding-bottom: 10px;
+}
+
+.alphab_ord_options{
+    border: solid 2px #004e92;
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    width: 340px;
+    height: 200px;
+    align-items: center;
+    gap: 10px;
+    padding-top: 10px;
+}
+
+.radio_organizer_alphab_ord{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.radio_alphab_ord{
+    cursor: pointer;
+    display: none;
+}
+
+.radio_alphab_ord_button{
+    cursor: pointer;
+    border: solid 1px #ffffff;
+    padding: 5px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.repeat_word_alphab_ord_container{
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 10px;
+}
+
+.checkbox_alphab_ord{
+    display: none;
+}
+
+#remove_repeat_alphab_ord_label{
+    cursor: pointer;
+    border: solid 1px #ffffff;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+}
+
+.send_alphab_ord_box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.alphab_ord_button{
+    background-color: #3a3a3a;
+    color: #ffffff;
+    text-transform: uppercase;
+    width: 150px;
+    height: 50px;
+    border: solid #ffffff 2px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.alphab_ord_button:hover{
+    background: linear-gradient(to top, #004e92, #000428);
+}
+

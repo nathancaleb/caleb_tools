@@ -16,8 +16,8 @@
                 <li class="words_btn" id="word_transform_btn" onClick="loadWordTransform()">
                     Maiúsculo/Minúsculo
                 </li>
-                <li class="words_btn">
-                    --- Em Breve ---
+                <li class="words_btn" id="alphabetic_ord_btn" onClick="loadAlphabeticOrd()">
+                    Ordem Alfabetida
                 </li>
                 <li class="words_btn">
                     --- Em Breve ---
@@ -36,25 +36,77 @@
                     placeholder="Insira o texto que deseja tratar."></textarea>
             </div>
         </section>
+            <!--    WORD TRANSFORM APP - START -->
             <section class="word_transform_section" id="word_transform_section">
                 <div class="word_transform_box">
                     <input type="radio" name="word_transform_options" value="uppercase_option" class="radio_tranform" id="uppercase_option">
                     <label class="radio_tranform_button" for="uppercase_option" id="uppercase_option_label">MAIÚSCULO</label>
+                    
                     <div class="division_buttons_transform"></div>
+                    
                     <input type="radio" name="word_transform_options" value="lowercase_option" class="radio_tranform" id="lowercase_option">
                     <label class="radio_tranform_button" for="lowercase_option">minúsculo</label>
+                    
                     <div class="division_buttons_transform"></div>
+                    
                     <input type="radio" name="word_transform_options" value="alternate_option" class="radio_tranform" id="alternate_option">
                     <label class="radio_tranform_button" for="alternate_option">AuTeRnAdO</label>
+                    
                     <div class="division_buttons_transform"></div>
+                    
                     <input type="radio" name="word_transform_options" value="invert_option" class="radio_tranform" id="invert_option">
                     <label class="radio_tranform_button" for="invert_option">Inverter texto</label>
+                    
                     <div class="division_buttons_transform"></div>
+                    
                     <input type="radio" name="word_transform_options" value="first_letter_word_option" class="radio_tranform" id="first_letter_word_option">
                     <label class="radio_tranform_button" for="first_letter_word_option" id="first_letter_word_option_label">Primeira Letra Palavra</label>
                 </div>
-                <div class="send_form_box">
+                <div class="send_tranform_box">
                     <button type="submit" class="transform_button" form="form_text" value="submit" onclick="transformText()">Transformar</button>
+                </div>
+            </section>
+            <!--    WORD TRANSFORM APP - END -->
+
+            <!--    ALPHABETIC ORDER APP - START -->
+            <section class="alphabetic_ord_section" id="alphabetic_ord_section">
+                <div class="alphabetic_ord_container">
+                    <div class="alphab_ord_options" id="orderation_alphab_ord_box">
+                        <label class="orderation_alphab_ord_tittle">TIPO DE ORDENAÇÃO:</label>
+
+                        <input type="radio" name="ordenation_alphab_ord_options" value="a_to_z_ord" class="radio_alphab_ord" id="a_to_z_ord">
+                        <label for="a_to_z_ord" class="radio_alphab_ord_button">A - Z</label>
+                        
+                        <input type="radio" name="ordenation_alphab_ord_options" value="z_to_a_ord" class="radio_alphab_ord" id="z_to_a_ord">
+                        <label for="z_to_a_ord" class="radio_alphab_ord_button">Z - A</label>
+                    </div>
+                    <div class="alphab_ord_options" id="order_by_alphab_ord_box">
+                        <label class="order_by_alphab_ord_tittle">ORDENAR POR:</label>
+
+                        <div class="radio_organizer_alphab_ord">
+                            <input type="radio" name="order_by_alphab_ord_options" value="word_wrap_alphab_ord" class="radio_alphab_ord" id="word_wrap_alphab_ord">
+                            <label for="word_wrap_alphab_ord" class="radio_alphab_ord_button">Quebra de Linha</label>
+                            
+                            <input type="radio" name="order_by_alphab_ord_options" value="space_alphab_ord" class="radio_alphab_ord" id="space_alphab_ord">
+                            <label for="space_alphab_ord" class="radio_alphab_ord_button">Espaço</label>
+
+                            <input type="radio" name="order_by_alphab_ord_options" value="comma_alphab_ord" class="radio_alphab_ord" id="comma_alphab_ord">
+                            <label for="comma_alphab_ord" class="radio_alphab_ord_button">Vírgula (,)</label>
+
+                            <input type="radio" name="order_by_alphab_ord_options" value="semicolon_alphab_ord" class="radio_alphab_ord" id="semicolon_alphab_ord">
+                            <label for="semicolon_alphab_ord" class="radio_alphab_ord_button">Ponto e Vírgula (;)</label>
+
+                            <input type="radio" name="order_by_alphab_ord_options" value="dot_alphab_ord" class="radio_alphab_ord" id="dot_alphab_ord">
+                            <label for="dot_alphab_ord" class="radio_alphab_ord_button">Ponto (.)</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="repeat_word_alphab_ord_container">
+                    <input type="checkbox" name="remove_repeat_word_alphab_ord" value="remove_repeat" class="checkbox_alphab_ord" id="remove_repeat_alphab_ord">
+                    <label for="remove_repeat" id="remove_repeat_alphab_ord_label">Remover Duplicados</label>
+                </div>
+                <div class="send_alphab_ord_box">
+                    <button type="submit" class="alphab_ord_button" value="submit" onclick="orderAlphabetic()">Ordenar</button>
                 </div>
             </section>
     </main>
