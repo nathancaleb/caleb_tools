@@ -14,34 +14,47 @@
         <nav class="nav_words">
             <ul class="nav_list">
                 <li class="words_btn" id="word_transform_btn">
-                    Maiusculo/Minusculo
+                    Maiúsculo/Minúsculo
                 </li>
                 <li class="words_btn">
-                    TESTE
+                    --- Em Breve ---
                 </li>
-                <li class="words_btn" id="word_transform_btn">
-                    TESTE TESTE
+                <li class="words_btn">
+                    --- Em Breve ---
                 </li>
-                <li class="words_btn" id="word_transform_btn">
-                    TESTETES TESTE
+                <li class="words_btn">
+                    --- Em Breve ---
                 </li>
             </ul>
         </nav>
             <section class="input_section">
                 <div class="input_box">
-                    <textarea name="text_to_work" id="text_to_work" cols="100" rows="10"></textarea>
+                    <textarea
+                        name="text_to_work"
+                        id="text_to_work"
+                        cols="100" rows="10"
+                        placeholder="Insira o texto que deseja tratar."></textarea>
                 </div>
             </section>
             <section class="word_transform_section">
                 <div class="word_transform_box">
-                    <input type="radio" name="word_transform_options" value="uppercase_option">Maiúsculo
-                    <input type="radio" name="word_transform_options" value="lowercase_option">Minúsculo
-                    <input type="radio" name="word_transform_options" value="alternate_option">Auternado
-                    <input type="radio" name="word_transform_options" value="invert_option">Inverter texto
-                    <input type="radio" name="word_transform_options" value="first_letter_word_option">Primeira Letra Palavra
+                    <input type="radio" name="word_transform_options" value="uppercase_option" class="radio_tranform" id="uppercase_option">
+                    <label class="radio_tranform_button" for="uppercase_option" id="uppercase_option_label">MAIÚSCULO</label>
+                    <div class="division_buttons_transform"></div>
+                    <input type="radio" name="word_transform_options" value="lowercase_option" class="radio_tranform" id="lowercase_option">
+                    <label class="radio_tranform_button" for="lowercase_option">minúsculo</label>
+                    <div class="division_buttons_transform"></div>
+                    <input type="radio" name="word_transform_options" value="alternate_option" class="radio_tranform" id="alternate_option">
+                    <label class="radio_tranform_button" for="alternate_option">AuTeRnAdO</label>
+                    <div class="division_buttons_transform"></div>
+                    <input type="radio" name="word_transform_options" value="invert_option" class="radio_tranform" id="invert_option">
+                    <label class="radio_tranform_button" for="invert_option">Inverter texto</label>
+                    <div class="division_buttons_transform"></div>
+                    <input type="radio" name="word_transform_options" value="first_letter_word_option" class="radio_tranform" id="first_letter_word_option">
+                    <label class="radio_tranform_button" for="first_letter_word_option" id="first_letter_word_option_label">Primeira Letra Palavra</label>
                 </div>
                 <div class="send_form_box">
-                    <button type="submit" form="form_text" value="submit" onclick="transformText()">Transformar</button>
+                    <button type="submit" class="transform_button" form="form_text" value="submit" onclick="transformText()">Transformar</button>
                 </div>
             </section>
     </main>

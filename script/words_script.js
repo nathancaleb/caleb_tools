@@ -4,6 +4,7 @@ const textContent = document.querySelector("#text_to_work");
 // -------------------- WORD TRANSFORM -----------------------
 // Trazendo as opções de tranformação da palavra
 const transformOptions = document.getElementsByName("word_transform_options");
+const transformOptionsBtn = document.querySelectorAll(".radio_tranform_button")
 
 // Variavel para atribuição da opção selecionada
 let selectedTransformOption = "";
@@ -18,6 +19,7 @@ function transformText(){
     }
 
     if(selectedTransformOption == "uppercase_option"){
+
         const textToTransform = textContent.value;
         const textTransformed = textToTransform.toUpperCase();
 
@@ -60,15 +62,14 @@ function transformText(){
         let separatedWordsToTransform = textToTransform.split(" ")
         for(let i = 0; i < separatedWordsToTransform.length; i++){
             const firstLetterOfWord = separatedWordsToTransform[i][0].toUpperCase();
-                let word = ""
-                    if(word == ""){
-                        word = word + firstLetterOfWord
-                    }
-                    else{
-                        word = word + separatedWordsToTransform[i]
-                    }console.log(word)
+            let remainingWord = ""
+                for(let j = 1; j < separatedWordsToTransform[i].length; j++){
+                    remainingWord = remainingWord + separatedWordsToTransform[i][j].toLowerCase();
                 }
+            separatedWordsToTransform[i] = firstLetterOfWord + remainingWord
+        }
+        textTransformed = separatedWordsToTransform.join(" ")
+        textContent.value = textTransformed;
     }
 
-        //textContent.value = textTransformed        
 }
