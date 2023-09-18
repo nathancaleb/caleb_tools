@@ -11,12 +11,14 @@ const wordTransformApp = document.getElementById("word_transform_section");
 const alphabeticOrdApp = document.getElementById("alphabetic_ord_section")
 
 // Menu Functions
+// carrega Word Transform
 function loadWordTransform(){
     clearMenuSelected()
     wordsTransformBtb.classList.add("selected_word_btn");
     wordTransformApp.style.display = "flex"
 }
 
+// carrega Alphabetic Order
 function loadAlphabeticOrd(){
     clearMenuSelected()
     alphabeticOrdBtn.classList.add("selected_word_btn")
@@ -110,11 +112,13 @@ function transformText(){
 // Trazendo as opções para ordernar as palavras
 const alphabOrdenationOptions = document.getElementsByName("ordenation_alphab_ord_options")
 const alphabOrderByOptions = document.getElementsByName("order_by_alphab_ord_options")
+const returnOrderByOptions = document.getElementsByName("return_by_alphab_ord_options")
 const repeatWordsOption = document.querySelector("#remove_repeat_alphab_ord")
 
 // Variaveis para atribuição das opções selecionadas
 let selectedOrdenationOptions = ""
 let selectedOrderByOptions = ""
+let selectedReturnByOptions = ""
 
 // FUNÇÃO DO ALPHABETIC ORDER
 function orderAlphabetic(){
@@ -131,27 +135,32 @@ function orderAlphabetic(){
         return cleanedRepeatList
     }
 
-    // Atribuindo a opção checkada a variavel de seleção
+    // Atribuindo a opção checkada em Ordenação Crescente/Decrescente a variavel de seleção
     for(let i = 0; i < alphabOrdenationOptions.length; i++){
         if (alphabOrdenationOptions[i].checked) {
             selectedOrdenationOptions = alphabOrdenationOptions[i].value;
         }
     }
-    // Atribuindo a opção checkada a variavel de seleção
+    // Atribuindo a opção checkada em Separar por: a variavel de seleção
     for(let i = 0; i < alphabOrderByOptions.length; i++){
         if (alphabOrderByOptions[i].checked) {
             selectedOrderByOptions = alphabOrderByOptions[i].value;
         }
     }
+    // Atribuindo a opção checkada em Retornar por: a variavel de seleção
+    for(let i = 0; i < returnOrderByOptions.length; i++){
+        if (returnOrderByOptions[i].checked) {
+            selectedReturnByOptions = returnOrderByOptions[i].value;
+        }
+    }
 
     // Recebendo o conteudo do texto
-    const textToTransform = textContent.value;
+    const textToOrder = textContent.value;
 
-    // Opção QUEBRA DE LINHA
-    if(selectedOrderByOptions == "word_wrap_alphab_ord"){
-        
+    // função que realiza Ordenação
+    function orderAlphabStart(splitSymbol,splitSymbolAfter){
         // Splita por espaço
-        let splitedWords = textToTransform.split(/\r?\n/);
+        let splitedWords = textToOrder.split(splitSymbol);
         
         // Coloca em ordem alfabetica
         splitedWords = splitedWords.sort(function (a, b){
@@ -174,7 +183,7 @@ function orderAlphabetic(){
                     reverseWords = [...cleanedWordsTemp.values()]
                 }
 
-                const textTransformed = reverseWords.join("\n")
+                const textTransformed = reverseWords.join(splitSymbolAfter)
                 textContent.value = textTransformed;
         }
         // caso Opção A - Z (continua)
@@ -187,9 +196,70 @@ function orderAlphabetic(){
             }
         
         // Remonta a string pelo Array
-        const textTransformed = splitedWords.join("\n")
+        const textTransformed = splitedWords.join(splitSymbolAfter)
         // Atribui ao textArea
         textContent.value = textTransformed;
         }
-    }    
-}
+    }
+
+    //função para definir como a separação das palavras seram retornadas
+    function returnOrderSelected(){
+        // Opção retorna com QUEBRA DE LINHA
+        if(selectedReturnByOptions == "return_word_wrap_alphab_ord"){
+            const splitSymbolAfter = "\n";
+            return splitSymbolAfter;
+        }
+        // Opção retorna com ESPAÇO
+        else if(selectedReturnByOptions == "return_space_alphab_ord"){
+            const splitSymbolAfter = " "
+            return splitSymbolAfter;
+        }
+        // Opção retorna com VIRGULA
+        else if(selectedReturnByOptions == "return_comma_alphab_ord"){
+            const splitSymbolAfter = ","
+            return splitSymbolAfter;
+        }
+        // Opção retorna com PONTO E VIRGULA
+        else if(selectedReturnByOptions == "return_semicolon_alphab_ord"){
+            const splitSymbolAfter = ";"
+            return splitSymbolAfter;
+        }
+        // Opção retorna com PONTO
+        else if(selectedOrderByOptions == "return_dot_alphab_ord"){
+            const splitSymbolAfter = "."
+            return splitSymbolAfter;
+        }
+    }
+
+    // Opção QUEBRA DE LINHA
+    if(selectedOrderByOptions == "word_wrap_alphab_ord"){
+        const splitSymbol = /\r?\n/
+        const splitSymbolAfter = returnOrderSelected()
+        orderAlphabStart(splitSymbol,splitSymbolAfter)
+    }
+    // Opção ESPAÇO
+    else if(selectedOrderByOptions == "space_alphab_ord"){
+        const splitSymbol = " "
+        const splitSymbolAfter = returnOrderSelected()
+        orderAlphabStart(splitSymbol,splitSymbolAfter)
+    }
+    // Opção VIRGULA
+    else if(selectedOrderByOptions == "comma_alphab_ord"){
+        const splitSymbol = ","
+        const splitSymbolAfter = returnOrderSelected()
+        orderAlphabStart(splitSymbol,splitSymbolAfter)
+    }
+    // Opção PONTO E VIRGULA
+    else if(selectedOrderByOptions == "semicolon_alphab_ord"){
+        const splitSymbol = ";"
+        const splitSymbolAfter = returnOrderSelected()
+        orderAlphabStart(splitSymbol,splitSymbolAfter)
+    }
+    // Opção PONTO
+    else if(selectedOrderByOptions == "dot_alphab_ord"){
+        const splitSymbol = "."
+        const splitSymbolAfter = returnOrderSelected()
+        orderAlphabStart(splitSymbol,splitSymbolAfter)
+    }
+        
+}   
