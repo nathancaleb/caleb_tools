@@ -265,6 +265,12 @@ body{
     border-radius: 10px;
 }
 
+.radio_alphab_ord:checked + label{
+    background: #000428;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #004e92, #000428);
+}
+
 .repeat_word_alphab_ord_container{
     color: #ffffff;
     font-family: 'Roboto', sans-serif;
@@ -286,6 +292,12 @@ body{
     align-items: center;
     justify-content: center;
     border-radius: 15px;
+}
+
+#remove_repeat_alphab_ord:checked + label{
+    background: #000428;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #004e92, #000428);
 }
 
 .send_alphab_ord_box{

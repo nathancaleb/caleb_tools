@@ -104,3 +104,92 @@ function transformText(){
     }
 
 }
+
+// -------------------- ALPHABETIC ORDER -----------------------
+
+// Trazendo as opções para ordernar as palavras
+const alphabOrdenationOptions = document.getElementsByName("ordenation_alphab_ord_options")
+const alphabOrderByOptions = document.getElementsByName("order_by_alphab_ord_options")
+const repeatWordsOption = document.querySelector("#remove_repeat_alphab_ord")
+
+// Variaveis para atribuição das opções selecionadas
+let selectedOrdenationOptions = ""
+let selectedOrderByOptions = ""
+
+// FUNÇÃO DO ALPHABETIC ORDER
+function orderAlphabetic(){
+
+    //função para limpar itens repitidos
+    function repeatWords(wordsArray){
+    
+        const cleanedRepeatList = new Set();
+
+        wordsArray.forEach((word) => {
+            cleanedRepeatList.add(word);
+        });
+
+        return cleanedRepeatList
+    }
+
+    // Atribuindo a opção checkada a variavel de seleção
+    for(let i = 0; i < alphabOrdenationOptions.length; i++){
+        if (alphabOrdenationOptions[i].checked) {
+            selectedOrdenationOptions = alphabOrdenationOptions[i].value;
+        }
+    }
+    // Atribuindo a opção checkada a variavel de seleção
+    for(let i = 0; i < alphabOrderByOptions.length; i++){
+        if (alphabOrderByOptions[i].checked) {
+            selectedOrderByOptions = alphabOrderByOptions[i].value;
+        }
+    }
+
+    // Recebendo o conteudo do texto
+    const textToTransform = textContent.value;
+
+    // Opção QUEBRA DE LINHA
+    if(selectedOrderByOptions == "word_wrap_alphab_ord"){
+        
+        // Splita por espaço
+        let splitedWords = textToTransform.split(/\r?\n/);
+        
+        // Coloca em ordem alfabetica
+        splitedWords = splitedWords.sort(function (a, b){
+            let x = a.toUpperCase(),
+                y = b.toUpperCase();
+            
+            return x == y ? 0 : x > y ? 1 : -1;
+        })
+
+        // Caso Opção Z - A
+        if(selectedOrdenationOptions == "z_to_a_ord" ){
+            let reverseWords = []
+                for(let i = splitedWords.length-1; i > -1; i--){
+                    reverseWords.push(splitedWords[i])
+                }
+                
+                // check se remove repeat ta marcado
+                if(repeatWordsOption.checked){
+                    const cleanedWordsTemp = repeatWords(reverseWords)
+                    reverseWords = [...cleanedWordsTemp.values()]
+                }
+
+                const textTransformed = reverseWords.join("\n")
+                textContent.value = textTransformed;
+        }
+        // caso Opção A - Z (continua)
+        else if(selectedOrdenationOptions == "a_to_z_ord"){
+
+            // check se remove repeat ta marcado
+            if(repeatWordsOption.checked){
+                const cleanedWordsTemp = repeatWords(splitedWords)
+                splitedWords = [...cleanedWordsTemp.values()]
+            }
+        
+        // Remonta a string pelo Array
+        const textTransformed = splitedWords.join("\n")
+        // Atribui ao textArea
+        textContent.value = textTransformed;
+        }
+    }    
+}
