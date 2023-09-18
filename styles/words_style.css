@@ -76,7 +76,7 @@ body{
 .words_btn:first-child.selected_word_btn{
     background: #000428;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to top, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, #004e92, #000428);
+    background: linear-gradient(to top, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     border-right: solid 2px #ffffff;
     border-left: 0px;
 }
@@ -84,7 +84,7 @@ body{
 .words_btn:last-child.selected_word_btn{
     background: #000428;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to top, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, #004e92, #000428);
+    background: linear-gradient(to top, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     border-bottom-left-radius: 10px;
     border-left: solid 2px #ffffff;
     border-right: 0px;
@@ -155,7 +155,7 @@ body{
 .radio_tranform:checked + label{
     background: #000428;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to top, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, #004e92, #000428);
+    background: linear-gradient(to top, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 #uppercase_option_label{
@@ -206,7 +206,9 @@ body{
 }
 
 .transform_button:hover{
-    background: linear-gradient(to top, #004e92, #000428);
+    background: #000428;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 /*  ------------------- ALPHABETIC ORDER TAB ------------------- */
@@ -265,10 +267,16 @@ body{
     border-radius: 10px;
 }
 
+.radio_alphab_ord_button:hover{
+    background: #000428;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
 .radio_alphab_ord:checked + label{
     background: #000428;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to top, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, #004e92, #000428);
+    background: linear-gradient(to top, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .repeat_word_alphab_ord_container{
@@ -292,6 +300,12 @@ body{
     align-items: center;
     justify-content: center;
     border-radius: 15px;
+}
+
+#remove_repeat_alphab_ord_label:hover{
+    background: #000428;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 #remove_repeat_alphab_ord:checked + label{
