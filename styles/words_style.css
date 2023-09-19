@@ -335,3 +335,37 @@ body{
     background: linear-gradient(to top, #004e92, #000428);
 }
 
+
+/*  ------------------- CHARACTER COUNTER TAB ------------------- */
+
+.character_counter_section{
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.character_counter_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.conter_box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border: solid 1px #ffffff;
+    padding: 20px;
+    border-radius: 40px;
+    background-color: #4b4b4b;
+}
+
+.conter_box span{
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}

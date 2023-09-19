@@ -2,42 +2,54 @@
 const textContent = document.querySelector("#text_to_work");
 
 // Trazendo botõees do menu principal
-const menuBtns = document.querySelectorAll(".words_btn")
+const menuBtns = document.querySelectorAll(".words_btn");
 const wordsTransformBtb = document.getElementById("word_transform_btn");
 const alphabeticOrdBtn = document.getElementById("alphabetic_ord_btn");
+const characterCounterBtn = document.getElementById("character_counter_btn");
 
 // Trazendo aplicações
 const wordTransformApp = document.getElementById("word_transform_section");
-const alphabeticOrdApp = document.getElementById("alphabetic_ord_section")
+const alphabeticOrdApp = document.getElementById("alphabetic_ord_section");
+const characterCountApp = document.getElementById("character_counter_section");
 
 // Menu Functions
 // carrega Word Transform
 function loadWordTransform(){
-    clearMenuSelected()
+    clearMenuSelected();
     wordsTransformBtb.classList.add("selected_word_btn");
-    wordTransformApp.style.display = "flex"
+    wordTransformApp.style.display = "flex";
 }
 
 // carrega Alphabetic Order
 function loadAlphabeticOrd(){
-    clearMenuSelected()
-    alphabeticOrdBtn.classList.add("selected_word_btn")
-    alphabeticOrdApp.style.display = "flex"
+    clearMenuSelected();
+    alphabeticOrdBtn.classList.add("selected_word_btn");
+    alphabeticOrdApp.style.display = "flex";
+}
+
+// carrega Character Counter
+function loadCharacterCount(){
+    clearMenuSelected();
+    characterCounterBtn.classList.add("selected_word_btn");
+    characterCountApp.style.display = "flex";
+    textContent.addEventListener("keypress", counterCharac)
+    textContent.addEventListener("keyup", counterCharac)
 }
 
 // Limpar seleção do menu
 function clearMenuSelected(){
     for(let i = 0; i < menuBtns.length; i++){
-        menuBtns[i].classList.remove("selected_word_btn")
+        menuBtns[i].classList.remove("selected_word_btn");
     }
-    wordTransformApp.style.display = "none"
-    alphabeticOrdApp.style.display = "none"
+    wordTransformApp.style.display = "none";
+    alphabeticOrdApp.style.display = "none";
+    characterCountApp.style.display = "none";
 }
 
 // -------------------- WORD TRANSFORM -----------------------
 // Trazendo as opções de tranformação da palavra
 const transformOptions = document.getElementsByName("word_transform_options");
-const transformOptionsBtn = document.querySelectorAll(".radio_tranform_button")
+const transformOptionsBtn = document.querySelectorAll(".radio_tranform_button");
 
 // Variavel para atribuição da opção selecionada
 let selectedTransformOption = "";
@@ -159,7 +171,7 @@ function orderAlphabetic(){
 
     // função que realiza Ordenação
     function orderAlphabStart(splitSymbol,splitSymbolAfter){
-        // Splita por espaço
+        // Splita o texto para um array
         let splitedWords = textToOrder.split(splitSymbol);
         
         // Coloca em ordem alfabetica
@@ -263,3 +275,30 @@ function orderAlphabetic(){
     }
         
 }   
+
+// -------------------- CHARACTER CONUNTER -----------------------
+
+// função de CONTADOR
+function counterCharac(e){
+
+    // DOM ELEMENTS representa os numeros dos contadores
+    let characterQty = document.getElementById("character_text"); //contador caracteres
+    let wordsQty = document.getElementById("words_text"); //contador de palavras
+    let rowsQty = document.getElementById("rows_text"); // contador de linhas
+
+    // atribuindo conteudo do textarea a variavel
+    const currentText = textContent.value;
+
+    // imprime contador de caracteres
+    characterQty.innerHTML = currentText.length;
+
+    // atribuindo cada palavra em um array
+    const wordsCurrentText = currentText.split(/\s/);
+    // imprime o contador de palavras
+    wordsQty.innerHTML = wordsCurrentText.length;
+
+    // atribuindo cada linha em um array
+    const rowsCurrentText = currentText.split(/\r?\n/);
+    // imprime contador de linhas
+    rowsQty.innerHTML = rowsCurrentText.length;
+}

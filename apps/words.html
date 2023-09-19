@@ -19,11 +19,8 @@
                 <li class="words_btn" id="alphabetic_ord_btn" onClick="loadAlphabeticOrd()">
                     Ordem Alfabetida
                 </li>
-                <li class="words_btn">
-                    --- Em Breve ---
-                </li>
-                <li class="words_btn">
-                    --- Em Breve ---
+                <li class="words_btn" id="character_counter_btn" onClick="loadCharacterCount()">
+                    Contador de Caracteres
                 </li>
             </ul>
         </nav>
@@ -129,6 +126,26 @@
                     <button type="submit" class="alphab_ord_button" value="submit" onclick="orderAlphabetic()">Ordenar</button>
                 </div>
             </section>
+            <!--    ALPHABETIC ORDER APP - END -->
+
+            <!--    CHARACTER COUNTER APP - START -->
+            <section class="character_counter_section" id="character_counter_section">
+                <div class="character_counter_container">
+                    <div class="conter_box">
+                        <span>Caracteres: </span>
+                        <span id="character_text"></span>
+                    </div>
+                    <div class="conter_box">
+                        <span>Palavras: </span>
+                        <span id="words_text"></span>
+                    </div>
+                    <div class="conter_box">
+                        <span>Linhas: </span>
+                        <span id="rows_text"></span>
+                    </div>
+                </div>
+            </section>
+            <!--    CHARACTER COUNTER APP - END -->
     </main>
 </body>
 <script src="../script/words_script.js"></script>
