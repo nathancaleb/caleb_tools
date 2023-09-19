@@ -41,6 +41,7 @@ A aplicação possui um menu lateral, onde cada botão representa uma ferramenta
 
 - _[CALCULADORA](#calculadora)_
 - _[CALENDÁRIO](#calendario)_
+- _[PALAVRAS](#palavras)_
 
 [Topo](#sumario)
 _________________________________
@@ -51,7 +52,7 @@ _________________________________
 
 <a id="calculadora"></a>
 
-[ _CALCULADORA_ ]
+<b>[ _CALCULADORA_ ]</b>
 
 ![preview](/.github/preview_calculadora.jpg)
 
@@ -75,7 +76,7 @@ _* Construção e Estilização: Aplicação construída apenas com caracteres (
 
 <a id="calendario"></a>
 
-[ _CALENDARIO_ ]
+<b>[ _CALENDARIO_ ]</b>
 
 ![preview](/.github/preview_calendario.jpg)
 
@@ -102,6 +103,58 @@ _BOTÃO DEFINIR ANO: Funciona como o menu de opções de meses, mas este apresen
 _SOBRE LIMITE DO CALENDÁRIO: O calendário, regredindo os meses, funciona até janeiro de 1970 conforme informado na documentação da instância Date. Ao tentar passar o limite, um alerta em tela é apresentado, informando sobre o limite._
 
 _* Construção e Estilização: Arquivo SVG para botões (seta) e estilização com CSS bruto._
+
+<a id="palavras"></a>
+
+<b>[ _PALAVRAS_ ]</b>
+
+![preview](/.github/preview_palavras.jpg)
+
+_* Tech: JavaScript;_
+
+_* Utilidade: Manipulação de letras, palavras e textos, podendo alterando maiúscula/minúscula, ordem alfabÉtica e contador de caracteres ;_
+
+_A aplicação inicialmente possui uma grande caixa de texto (textArea), onde acontece toda a interação com as letras e palavras, e no topo, um menu com botões relacionado aos tipos de interações. Clicando no botão, as opções de interação iram aparecer abaixo da caixa de texto, de acordo com sua função._
+
+_As aplicações estão escondidas através de CSS, utilizando a propriedade ```display: none;``` ao clicar no botão, a aplicação desejada fica visivel por ```display: flex;```_
+
+<b>MAIÚSCULO E MINÚSCULO</b>
+
+![preview](/.github/preview_palavras_letter_case.jpg)
+
+_Na ferramenta MAIÚSCULO/MINÚSCULO é possivel manipular letras, palavras e textos através das opções disponiveis. Com o texto inserido na caixa de texto e a opção desejada selecionada, basta clicar no botão << TRANSFORMAR >> e o proprio texto digitado na caixa de texto será transformado._
+
+_MAIÚSCULO: Esta opção transforma todo o texto em maiúsculo._
+
+_MINÚSCULO: Esta opção transforma todo o texto em minúsculo._
+
+_AUTERNADO: Esta opção transforma o texto alternando cada letra entre maiúscula e minúscula_
+
+_INVERTER TEXTO: Esta opção transforma o texto colocando o mesmo de trás para frente_
+
+_PRIMEIRA LETRA PALAVRA: Esta opção tranforma o texto colocando a primeira letra de cada letra em maiúscula e o restante de cada palavra em minúscula_
+
+<b>ORDEM ALFABÉTICA</b>
+
+![preview](/.github/preview_palavras_order_alfabetica.jpg)
+
+_Na Ferramenta ORDDEM ALFABÉTICA é possivel ordernar as palavras através das opções disponiveis_
+
+_TIPO DE ORDENAÇÃO: Esta opção define se a ordem alfabética seguira o fluxo normal ou de traz pra frente (de A ao Z ou de Z ao A)_
+
+_SEPARAR POR: Esta opção define qual tipo de caractere será usado para separar as palavras, sendo estes << Quebra de linha>>, << Espaço >>, << Vírgula >>, << Ponto e Vírgula >> e << ponto >>_
+
+_RETORNAR POR: Esta opção define qual tipo de caractere será usado para separar as palavras quando retornamos o resultado da ordenação, sendo estes << Quebra de linha>>, << Espaço >>, << Vírgula >>, << Ponto e Vírgula >> e << ponto >>_
+
+_REMOVER DUPLICADOS: Esta opção define se a aplicação irá remover os valores repitidos ou se seram ordenados também_
+
+<b>CONTADOR DE CARACTERES</b>
+
+![preview](/.github/preview_palavras_contador_caracteres.jpg)
+
+_Na ferramenta CONTADOR DE CARACTERES a aplicação ira contabilizar os caracteres, palavras e linhas que são inseridos na caixa de texto, em tempo real._
+
+_* Construção e Estilização: Estilização com CSS bruto._
 
 [Ferramentas](#ferramentas) - [Topo](#sumario)
 

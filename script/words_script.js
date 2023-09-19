@@ -301,4 +301,4 @@ function counterCharac(e){
     const rowsCurrentText = currentText.split(/\r?\n/);
     // imprime contador de linhas
     rowsQty.innerHTML = rowsCurrentText.length;
-}
+}   

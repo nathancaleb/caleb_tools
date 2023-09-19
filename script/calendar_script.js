@@ -80,7 +80,6 @@ const getHours = () => {
     const hour = hours < 10 ? `0${hours}` : hours;
     const minute = minutes < 10 ? `0${minutes}` : minutes;
     const second = seconds < 10 ? `0${seconds}` : seconds;
-    console.log(`${hour}:${minute}:${second}`)
     clockText.innerHTML = `${hour}:${minute}:${second}`;
 }
   
