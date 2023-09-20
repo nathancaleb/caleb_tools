@@ -1,0 +1,177 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+}
+
+.main_draw_numbers{
+    width: 100%;
+    height: 100%;
+}
+
+.draw_numbers_section{
+    width: 100%;
+    height: 100%;
+}
+
+.draw_numbers_container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.draw_numbers_options_container{
+    height: 100%;
+    width: 50%;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.draw_numbers_qty_box{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.draw_numbers_qty_box span{
+    font-size: 25px;
+}
+
+.draw_numbers_input{
+    width: 70px;
+    height: 70px;
+    background-color: #383838;
+    font-size: 25px;
+    border-radius: 30px;
+    border: none;
+    cursor: text;
+    color: #ffffff;
+    font-size: 25px;
+    text-align: center;   
+}
+
+.draw_numbers_input:focus{
+    border: solid 3px #004e92;
+    outline: none;
+}
+
+.draw_numbers_settings_box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.checkbox_draw_number{
+    display: none;
+}
+
+#remove_repeat_draw_number_label{
+    cursor: pointer;
+    border: solid 1px #ffffff;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+}
+
+#remove_repeat_draw_number_label:hover{
+    background: #000428;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+#remove_repeat_draw_number:checked + label{
+    background: #000428;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #004e92, #000428);
+}
+
+.send_draw_number_box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.draw_number_btn{
+    background-color: #3a3a3a;
+    color: #ffffff;
+    text-transform: uppercase;
+    width: 150px;
+    height: 50px;
+    border: solid #ffffff 2px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.draw_number_btn:hover{
+    background: linear-gradient(to top, #004e92, #000428);
+}
+
+.draw_numbers_display_container{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.draw_numbers_display_box{
+    background-color: #2b284b;
+    width: 80%;
+    height: 20%;
+    border-radius: 30px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.drawed_number_box{
+    background-color: #dadada;
+    width: 80%;
+    height: 50%;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.numbers_box{
+    font-size: 40px;
+    color: #004e92;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+}
+
+.drawed_number_text_box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.numbers_box:hover{
+    color: #289bff;
+}
+
+.drawed_results_box{
+    font-size: 20px;
+    color: #0c2336;
+    font-family: 'Poppins', sans-serif;
+}

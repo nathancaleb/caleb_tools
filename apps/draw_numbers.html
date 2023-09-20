@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/draw_numbers_style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@100;400&family=Rubik&display=swap" rel="stylesheet">
+    <title>Draw Numbers</title>
+</head>
+<body>
+    <main class="main_draw_numbers">
+        <section class="draw_numbers_section">
+            <div class="draw_numbers_container">
+                <div class="draw_numbers_options_container">
+                    <div class="draw_numbers_qty_box">
+                        <span>Sortear</span>
+                        <input type="text" id="qty_draw_numbers" class="draw_numbers_input" value=1>
+                        <span>número(s) entre</span>
+                        <input type="text" id="draw_number_start_interval" class="draw_numbers_input" value=1>
+                        <span>e</span>
+                        <input type="text" id="draw_number_end_interval" class="draw_numbers_input" value=10>
+                    </div>
+                    <div class="draw_numbers_settings_box">
+                        <div class="draw_numbers_remove_repeat_box">
+                            <input type="checkbox" name="remove_repeat_draw_number" value="remove_repeat_draw_number" class="checkbox_draw_number" id="remove_repeat_draw_number">
+                            <label for="remove_repeat_draw_number" id="remove_repeat_draw_number_label">Não Repetir Números</label>
+                        </div>
+                        <div class="send_draw_number_box">
+                            <button class="draw_number_btn">SORTEAR!</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="draw_numbers_display_container">
+                    <div class="draw_numbers_display_box">
+                        <!-- <div class="drawed_number_box">
+                            <div class="drawed_number_text_box">
+                                <span class="numbers_box">10,</span>
+                                <span class="numbers_box">52,</span>
+                                <span class="numbers_box">31</span>
+                            </div>
+                            <div class="drawed_results_box">
+                            1º Resultado
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+<script src="../script/draw_numbers_script.js"></script>
+</html>
