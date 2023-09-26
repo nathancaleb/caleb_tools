@@ -79,28 +79,6 @@ body{
     display: none;
 }
 
-#remove_repeat_draw_number_label{
-    cursor: pointer;
-    border: solid 1px #ffffff;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 15px;
-}
-
-#remove_repeat_draw_number_label:hover{
-    background: #000428;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
-#remove_repeat_draw_number:checked + label{
-    background: #000428;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, #004e92, #000428);
-}
-
 .send_draw_number_box{
     display: flex;
     align-items: center;
