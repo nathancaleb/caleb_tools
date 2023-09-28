@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/dice_style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@100;400&family=Rubik&display=swap" rel="stylesheet">
+    <title>Dice</title>
+</head>
+<body>
+    <main class="main_dice">
+        <section class="dice_options">
+            <span class="dice_option_tittle">escolha o dado:</span>
+            <div class="dice_option_container">
+                <div class="dice_option_box">
+                    <button class="dice_select_btn" id="dsix_btn" onclick="dice(6)">D6</button>
+                </div>
+                <div class="dice_option_box">
+                    <button class="dice_select_btn" id="dtwenty_btn" onclick="dice(20)">D20</button>
+                </div>
+            </div>
+        </section>
+        <section class="dice_display">
+            <div class="dice_box">
+                <!-- <img src="..\assets\dice\images\png\d6\d6_1.png" alt="" id="dice_img"> -->
+            </div>
+        </section>
+    </main>
+</body>
+<script src="../script/dice_script.js"></script>
+</html>
