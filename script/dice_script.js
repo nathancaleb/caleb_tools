@@ -31,10 +31,10 @@ function createDice(diceType){
     const diceCreate = document.createElement("img")
     diceCreate.classList.add("dice_img");
         if(diceType == 6){
-            diceCreate.src = "../assets/dice/images/png/d6/d6_1.png"
+            diceCreate.src = "assets/dice/images/png/d6/d6_1.png"
         }
         else if(diceType == 20){
-            diceCreate.src = "../assets/dice/images/png/d20/d20_1.png"
+            diceCreate.src = "assets/dice/images/png/d20/d20_1.png"
         }
     diceBox.appendChild(diceCreate);
     diceStatus = true;
