@@ -4,15 +4,26 @@ const dTwentyBtn = document.querySelector("#dtwenty_btn");
 
 // chamando o div onde será impresso o dado
 const diceBox = document.querySelector(".dice_box");
+// chamando o div que será impresso os resultados
+const diceResultContainer = document.querySelector(".dice_result_container")
 
 // variavel para verificar se o dado ja foi criado
 let diceStatus = false;
+// variavel para verificar se o dado ja foi lançado
+let diceRolled = false;
+
+// variavel para armazenar o numero de vezes que o dado foi rolado
+let contRoll = 0
 
 // FUNÇÃO p/ Limpa os botões marcados e dados ja criados
 function clearAll(){
     dSixBtn.classList.remove("selected_dice_option");
     dTwentyBtn.classList.remove("selected_dice_option");
-    diceBox.innerHTML = ""
+    if(diceStatus){
+        let diceCreated = document.querySelector(".dice_img");
+        diceCreated.parentNode.removeChild(diceCreated);
+    }
+    diceStatus = false;
 }
 
 // FUNÇÃO p/ criar o dado na tela
@@ -121,40 +132,81 @@ function diceRolling(diceType, num){
     }
 }
 
-// FUNÇÃO para imprimir o numero rolado
+// FUNÇÃO para imprimir o dado rolado
 function diceRoll(diceType){
     
     const dicePrint = document.querySelector(".dice_img")
+    let num = 0
 
-    if(diceType == 6){
-        const num = Math.floor(Math.random() * (diceType - 1 + 1)) + 1;
+    num = Math.floor(Math.random() * (diceType - 1 + 1)) + 1;
         
-        diceImage = diceRolling(diceType, num)
-        dicePrint.src = diceImage;
+    diceImage = diceRolling(diceType, num)
+    dicePrint.src = diceImage;
+
+    return num;
+}
+
+// FUNÇÃO para apresentar os resultados tirados
+function printDiceResult(finalResult, diceType){
+    // aumenta o contador de rolls
+    contRoll = contRoll + 1;
+    
+    // DOM ELEMENTS que seram criados para imprimir os resultados na tela
+    const diceResultBox = document.createElement("div");
+    const diceResultTextBox = document.createElement("div");
+    const rollTime = document.createElement("div");
+
+    // Atribuindo classes aos DOM ELEMENTS que seram criados
+    diceResultBox.classList.add("dice_result_box");
+    diceResultTextBox.classList.add("dice_number_box");
+    rollTime.classList.add("dice_time_result");
+
+    // Ativo visualização do container de resultados
+    diceResultContainer.style.display = "flex";
+
+    // Verifico se já foi realizado algum lançamento
+    if(diceRolled){
+        let nextresultBox = diceResultContainer.querySelector(":first-child");
+        diceResultContainer.insertBefore(diceResultBox, nextresultBox);
     }
-    else if(diceType == 20){
-        const num = Math.floor(Math.random() * (diceType - 1 + 1)) + 1;
-        
-        diceImage = diceRolling(diceType, num)
-        dicePrint.src = diceImage;
+    else{
+        diceResultContainer.appendChild(diceResultBox);
+        diceRolled = true;
     }
+
+    // DON ELEMENT do resultado para dentro da caixa
+    diceResultBox.appendChild(diceResultTextBox);
+   
+    // Atribui valor ao SPAN e imprime na tela
+    const rolledNumber = document.createTextNode(finalResult)
+    diceResultTextBox.appendChild(rolledNumber);
+
+    // Impressão do numero do sorteio
+    diceResultBox.appendChild(rollTime);
+    rollTime.innerHTML = `${contRoll}º Resultado - D${diceType}`
 }
 
 // FUNÇÃO PARA INICIALIZAR O DADO
 function dice(diceType){
+    // chama função para limpar
     clearAll();
     
+    // verifica qual botão foi clicado para alterar estilo
     if(diceType == 6){
         dSixBtn.classList.add("selected_dice_option");
     }else{
         dTwentyBtn.classList.add("selected_dice_option");
     }
 
+    // chama função para criar dado
     createDice(diceType)
 
+    // adiciona evento de click ao dado chamado a função de rolagem e impressão de resultado
     if(diceStatus){
-        diceBox.addEventListener("click", function(){
-            diceRoll(diceType)
+        const createdDice = document.querySelector(".dice_img");
+        createdDice.addEventListener("click", function(){
+            const finalResult = diceRoll(diceType);
+            printDiceResult(finalResult, diceType);
         })
     }
 }
