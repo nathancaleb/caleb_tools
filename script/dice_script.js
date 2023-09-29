@@ -44,22 +44,22 @@ function createDice(diceType){
 function diceRolling(diceType, num){
     if(diceType == 6){
         if(num == 1){
-            return "../assets/dice/images/png/d6/d6_1.png"
+            return "assets/dice/images/png/d6/d6_1.png"
         }
         else if(num == 2){
-            return "../assets/dice/images/png/d6/d6_2.png"
+            return "assets/dice/images/png/d6/d6_2.png"
         }
         else if(num == 3){
-            return "../assets/dice/images/png/d6/d6_3.png"
+            return "assets/dice/images/png/d6/d6_3.png"
         }
         else if(num == 4){
-            return "../assets/dice/images/png/d6/d6_4.png"
+            return "assets/dice/images/png/d6/d6_4.png"
         }
         else if(num == 5){
-            return "../assets/dice/images/png/d6/d6_5.png"
+            return "assets/dice/images/png/d6/d6_5.png"
         }
         else if(num == 6){
-            return "../assets/dice/images/png/d6/d6_6.png"
+            return "assets/dice/images/png/d6/d6_6.png"
         }
         else{
             alert("Erro")
@@ -67,64 +67,64 @@ function diceRolling(diceType, num){
     }
     else if(diceType == 20){
         if(num == 1){
-            return "../assets/dice/images/png/d20/d20_1.png"
+            return "assets/dice/images/png/d20/d20_1.png"
         }
         else if(num == 2){
-            return "../assets/dice/images/png/d20/d20_2.png"
+            return "assets/dice/images/png/d20/d20_2.png"
         }
         else if(num == 3){
-            return "../assets/dice/images/png/d20/d20_3.png"
+            return "assets/dice/images/png/d20/d20_3.png"
         }
         else if(num == 4){
-            return "../assets/dice/images/png/d20/d20_4.png"
+            return "assets/dice/images/png/d20/d20_4.png"
         }
         else if(num == 5){
-            return "../assets/dice/images/png/d20/d20_5.png"
+            return "assets/dice/images/png/d20/d20_5.png"
         }
         else if(num == 6){
-            return "../assets/dice/images/png/d20/d20_6.png"
+            return "assets/dice/images/png/d20/d20_6.png"
         }
         else if(num == 7){
-            return "../assets/dice/images/png/d20/d20_7.png"
+            return "assets/dice/images/png/d20/d20_7.png"
         }
         else if(num == 8){
-            return "../assets/dice/images/png/d20/d20_8.png"
+            return "assets/dice/images/png/d20/d20_8.png"
         }
         else if(num == 9){
-            return "../assets/dice/images/png/d20/d20_9.png"
+            return "assets/dice/images/png/d20/d20_9.png"
         }
         else if(num == 10){
-            return "../assets/dice/images/png/d20/d20_10.png"
+            return "assets/dice/images/png/d20/d20_10.png"
         }
         else if(num == 11){
-            return "../assets/dice/images/png/d20/d20_11.png"
+            return "assets/dice/images/png/d20/d20_11.png"
         }
         else if(num == 12){
-            return "../assets/dice/images/png/d20/d20_12.png"
+            return "assets/dice/images/png/d20/d20_12.png"
         }
         else if(num == 13){
-            return "../assets/dice/images/png/d20/d20_13.png"
+            return "assets/dice/images/png/d20/d20_13.png"
         }
         else if(num == 14){
-            return "../assets/dice/images/png/d20/d20_14.png"
+            return "assets/dice/images/png/d20/d20_14.png"
         }
         else if(num == 15){
-            return "../assets/dice/images/png/d20/d20_15.png"
+            return "assets/dice/images/png/d20/d20_15.png"
         }
         else if(num == 16){
-            return "../assets/dice/images/png/d20/d20_16.png"
+            return "assets/dice/images/png/d20/d20_16.png"
         }
         else if(num == 17){
-            return "../assets/dice/images/png/d20/d20_17.png"
+            return "assets/dice/images/png/d20/d20_17.png"
         }
         else if(num == 18){
-            return "../assets/dice/images/png/d20/d20_18.png"
+            return "assets/dice/images/png/d20/d20_18.png"
         }
         else if(num == 19){
-            return "../assets/dice/images/png/d20/d20_19.png"
+            return "assets/dice/images/png/d20/d20_19.png"
         }
         else if(num == 20){
-            return "../assets/dice/images/png/d20/d20_20.png"
+            return "assets/dice/images/png/d20/d20_20.png"
         }
         else{
             alert("Erro")
