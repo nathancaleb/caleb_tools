@@ -95,28 +95,27 @@ function drawNumber(){
 
             // Impressão do numero do sorteio
             resultBox.appendChild(drawTime);
-            console.log(numberOfDraw)
             drawTime.innerHTML = `${numberOfDraw}º Resultado`
         
     }
 
     // Verificar se a quantidade de numeros a ser sorteado é valido 
     if(qtyDrawNumbers.value < 1 || (qtyDrawNumbers.value).match(numberRule) == false || (qtyDrawNumbers.value).match(numberRule) == null){
-        alert("Total de números a sortear invalido. Favor inserir número valido.")
+        alert("Total de números a sortear invalido. Favor inserir número valido.");
     }
     // Verifica se o intervalo numérico é valido
     else if( endIntervalNum < startIntervalNum ||
              isNaN(startIntervalNum) == true ||
              isNaN(endIntervalNum) == true){
                 if(endIntervalNum < startIntervalNum){
-                    console.log("Valor inicial dos números a serem sorteados é maior que o número final. Favor inserir intervalo valido.")
+                    alert("Valor inicial dos números a serem sorteados é maior que o número final. Favor inserir intervalo valido.");
                 }else{
                     if(isNaN(startIntervalNum) == true){
-                        console.log("Valor inicial dos números a serem sorteados é invalido. Favor inserir número valido.")
+                        alert("Valor inicial dos números a serem sorteados é invalido. Favor inserir número valido.");
                     }
 
                     if(isNaN(endIntervalNum) == true){
-                        console.log("Valor final dos números a serem sorteados é invalido. Favor inserir número valido.")
+                        alert("Valor final dos números a serem sorteados é invalido. Favor inserir número valido.");
                     }
                 }
     }
@@ -134,7 +133,6 @@ function drawNumber(){
 
         }
         numberOfDraw = numberOfDraw + 1;
-        console.log(finalArray)
         printResult(finalArray)
     }
     // se um unico número for sorteado
@@ -147,7 +145,6 @@ function drawNumber(){
         intervalNumbers.splice(arrayPosition, 1)
 
         numberOfDraw = numberOfDraw + 1;
-        console.log(finalNumber)
         printResult(finalNumber)
     }
 

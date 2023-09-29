@@ -118,7 +118,7 @@ body{
     border-radius: 30px;
     display: none;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
     gap: 15px;
 }
