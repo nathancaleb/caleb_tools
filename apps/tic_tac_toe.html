@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../styles/tic_tac_toe_style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@100;400&family=Rubik&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+</head>
+<body>
+    <main class="main_ttt">
+        <section class="ttt_options_section">
+            <div class="ttt_player_options" >
+                <div class="ttt_player">
+                    <span class="ttt_player_text player_selected">vez deste jogador!</span>
+                    <div class="ttt_player_icon player_selected" onclick="menuChangeSymbol(1)">
+                        <img src="../assets/tic_tac_toe/images/svg/x_img.svg" alt="imagem de um X ou Circulo" id="p1_img_symbol">
+                    </div>
+                </div>
+                <div class="ttt_player_symbol_options_box" id="p1_option_symbol">
+                    <span>selecione um simbolo:</span>
+                    <div class="ttt_all_symbols_box">
+                        <div class="ttt_symbol_box" onclick="changeSymbol('x')">
+                            <img src="../assets/tic_tac_toe/images/svg/x_img.svg" alt="imagem de um X ou Circulo">
+                        </div>
+                        <div class="ttt_symbol_box" onclick="changeSymbol('o')">
+                            <img src="../assets/tic_tac_toe/images/svg/o_img.svg" alt="imagem de um X ou Circulo">
+                        </div>
+                    </div>
+                </div>
+                <div class="ttt_player_points_box">
+                    <span id="p1_points">0</span>
+                </div>
+            </div>
+
+            <div class="ttt_player_options">
+                <div class="ttt_player">
+                    <span class="ttt_player_text">vez deste jogador!</span>
+                    <div class="ttt_player_icon" onclick="menuChangeSymbol(2)">
+                        <img src="../assets/tic_tac_toe/images/svg/o_img.svg" alt="imagem de um X ou Circulo" id="p2_img_symbol">
+                    </div>
+                </div>
+                <div class="ttt_player_symbol_options_box" id="p2_option_symbol">
+                    <span>selecione um simbolo:</span>
+                    <div class="ttt_all_symbols_box">
+                        <div class="ttt_symbol_box" onclick="changeSymbol('x')">
+                            <img src="../assets/tic_tac_toe/images/svg/x_img.svg" alt="imagem de um X ou Circulo">
+                        </div>
+                        <div class="ttt_symbol_box" onclick="changeSymbol('o')">
+                            <img src="../assets/tic_tac_toe/images/svg/o_img.svg" alt="imagem de um X ou Circulo">
+                        </div>
+                    </div>
+                </div>
+                <div class="ttt_player_points_box">
+                    <span id="p2_points">0</span>
+                </div>
+            </div>
+        </section>
+        <section class="ttt_board_section">
+            <div class="ttt_board_box">
+                <table class="ttt_board">
+                    <tr class="ttt_board_line">
+                        <th id="ttt_space_1" class="ttt_spaces">
+                            <!-- <img src="../assets/tic_tac_toe/images/svg/x_img.svg" alt=""> -->
+                        </th>
+                        <th id="ttt_space_2" class="ttt_spaces">
+                            <!-- <img src="../assets/tic_tac_toe/images/svg/o_img.svg" alt=""> -->
+                        </th>
+                        <th id="ttt_space_3" class="ttt_spaces">
+                            <!-- <img src="../assets/tic_tac_toe/images/svg/x_img.svg" alt=""> -->
+                        </th>
+                    </tr>
+                    <tr class="ttt_board_line">
+                        <th id="ttt_space_4" class="ttt_spaces">
+                            <!-- <img src="../assets/tic_tac_toe/images/svg/o_img.svg" alt=""> -->
+                        </th>
+                        <th id="ttt_space_5" class="ttt_spaces">
+                            <!-- <img src="../assets/tic_tac_toe/images/svg/x_img.svg" alt=""> -->
+                        </th>
+                        <th id="ttt_space_6" class="ttt_spaces">
+                            <!-- <img src="../assets/tic_tac_toe/images/svg/o_img.svg" alt=""> -->
+                        </th>
+                    </tr>
+                    <tr class="ttt_board_line">
+                        <th id="ttt_space_7" class="ttt_spaces">
+                            <!-- <img src="../assets/tic_tac_toe/images/svg/x_img.svg" alt=""> -->
+                        </th>
+                        <th id="ttt_space_8" class="ttt_spaces">
+                            <!-- <img src="../assets/tic_tac_toe/images/svg/o_img.svg" alt="">         -->
+                        </th>
+                        <th id="ttt_space_9" class="ttt_spaces">
+                            <!-- <img src="../assets/tic_tac_toe/images/svg/x_img.svg" alt=""> -->
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </section>
+    </main>
+</body>
+<script src="../script/tic_tac_toe_script.js"></script>
+</html>
