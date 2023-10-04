@@ -195,3 +195,30 @@ body{
     border-color: #004e92;
     background-color: #102f4b;
 }
+
+.ttt_victory_modal{
+    position: absolute;
+    background-color: #000000;
+    border: #181818 solid 1px;
+    width: 80%;
+    height: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.ttt_victory_box{
+    border: #ffffff solid 5px;
+    width: 90%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ttt_victory_box span{
+    color: #ffffff;
+    font-family: 'Rubik', sans-serif;
+    font-size: 70px;
+}

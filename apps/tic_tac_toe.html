@@ -12,7 +12,7 @@
 <body>
     <main class="main_ttt">
         <section class="ttt_options_section">
-            <div class="ttt_player_options" >
+            <div class="ttt_player_options">
                 <div class="ttt_player">
                     <span class="ttt_player_text player_selected">vez deste jogador!</span>
                     <div class="ttt_player_icon player_selected" onclick="menuChangeSymbol(1)">
@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <div class="ttt_player_points_box">
-                    <span id="p1_points">0</span>
+                    <span id="p1_score">0</span>
                 </div>
             </div>
 
@@ -54,44 +54,48 @@
                     </div>
                 </div>
                 <div class="ttt_player_points_box">
-                    <span id="p2_points">0</span>
+                    <span id="p2_score">0</span>
                 </div>
             </div>
         </section>
         <section class="ttt_board_section">
+            <div class="ttt_victory_modal">
+                <div class="ttt_victory_box">
+                </div>
+            </div>
             <div class="ttt_board_box">
                 <table class="ttt_board">
                     <tr class="ttt_board_line">
-                        <th id="ttt_space_1" class="ttt_spaces">
-                            <!-- <img src="../assets/tic_tac_toe/images/svg/x_img.svg" alt=""> -->
+                        <th id="ttt_space_1" class="ttt_spaces" onclick="playGame(1)">
+                            <img src="#" alt="">
                         </th>
-                        <th id="ttt_space_2" class="ttt_spaces">
-                            <!-- <img src="../assets/tic_tac_toe/images/svg/o_img.svg" alt=""> -->
+                        <th id="ttt_space_2" class="ttt_spaces" onclick="playGame(2)">
+                            <img src="#" alt="">
                         </th>
-                        <th id="ttt_space_3" class="ttt_spaces">
-                            <!-- <img src="../assets/tic_tac_toe/images/svg/x_img.svg" alt=""> -->
-                        </th>
-                    </tr>
-                    <tr class="ttt_board_line">
-                        <th id="ttt_space_4" class="ttt_spaces">
-                            <!-- <img src="../assets/tic_tac_toe/images/svg/o_img.svg" alt=""> -->
-                        </th>
-                        <th id="ttt_space_5" class="ttt_spaces">
-                            <!-- <img src="../assets/tic_tac_toe/images/svg/x_img.svg" alt=""> -->
-                        </th>
-                        <th id="ttt_space_6" class="ttt_spaces">
-                            <!-- <img src="../assets/tic_tac_toe/images/svg/o_img.svg" alt=""> -->
+                        <th id="ttt_space_3" class="ttt_spaces" onclick="playGame(3)">
+                            <img src="#" alt="">
                         </th>
                     </tr>
                     <tr class="ttt_board_line">
-                        <th id="ttt_space_7" class="ttt_spaces">
-                            <!-- <img src="../assets/tic_tac_toe/images/svg/x_img.svg" alt=""> -->
+                        <th id="ttt_space_4" class="ttt_spaces" onclick="playGame(4)">
+                            <img src="#" alt="">
                         </th>
-                        <th id="ttt_space_8" class="ttt_spaces">
-                            <!-- <img src="../assets/tic_tac_toe/images/svg/o_img.svg" alt="">         -->
+                        <th id="ttt_space_5" class="ttt_spaces" onclick="playGame(5)">
+                            <img src="#" alt="">
                         </th>
-                        <th id="ttt_space_9" class="ttt_spaces">
-                            <!-- <img src="../assets/tic_tac_toe/images/svg/x_img.svg" alt=""> -->
+                        <th id="ttt_space_6" class="ttt_spaces" onclick="playGame(6)">
+                            <img src="#" alt="">
+                        </th>
+                    </tr>
+                    <tr class="ttt_board_line">
+                        <th id="ttt_space_7" class="ttt_spaces" onclick="playGame(7)">
+                            <img src="#" alt="">
+                        </th>
+                        <th id="ttt_space_8" class="ttt_spaces" onclick="playGame(8)">
+                           <img src="#" alt="">
+                        </th>
+                        <th id="ttt_space_9" class="ttt_spaces" onclick="playGame(9)">
+                           <img src="#" alt="">
                         </th>
                     </tr>
                 </table>
