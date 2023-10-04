@@ -44,8 +44,8 @@ board[0] = new Array(3) // linha 1
 board[1] = new Array(3) // linha 2
 board[2] = new Array(3) // linha 3
 // Variaveis com o caminho dos simbolos
-const xSymbol = "../assets/tic_tac_toe/images/svg/x_img.svg";
-const oSymbol = "../assets/tic_tac_toe/images/svg/o_img.svg";
+const xSymbol = "assets/tic_tac_toe/images/svg/x_img.svg";
+const oSymbol = "assets/tic_tac_toe/images/svg/o_img.svg";
 // Variavel Array com os espaços já clicados
 let checkIsClicked = [];
 // Variaveis de pontuação
@@ -73,15 +73,15 @@ function menuChangeSymbol(player){
 function changeSymbol(symbol){
     if(symbol == 'x'){
         if(playerToChange == 1){
-            p1Symbol.src = "../assets/tic_tac_toe/images/svg/x_img.svg";
-            p2Symbol.src = "../assets/tic_tac_toe/images/svg/o_img.svg";
+            p1Symbol.src = "assets/tic_tac_toe/images/svg/x_img.svg";
+            p2Symbol.src = "assets/tic_tac_toe/images/svg/o_img.svg";
             p1ToSelectSymbol.style.display = "none";
             p1SymbolSelected = "x"
             p2SymbolSelected = "o"
         }
         else if(playerToChange == 2){
-            p2Symbol.src = "../assets/tic_tac_toe/images/svg/x_img.svg";
-            p1Symbol.src = "../assets/tic_tac_toe/images/svg/o_img.svg";
+            p2Symbol.src = "assets/tic_tac_toe/images/svg/x_img.svg";
+            p1Symbol.src = "assets/tic_tac_toe/images/svg/o_img.svg";
             p2ToSelectSymbol.style.display = "none";
             p1SymbolSelected = "o"
             p2SymbolSelected = "x"
@@ -89,15 +89,15 @@ function changeSymbol(symbol){
     }
     else if(symbol == 'o'){
         if(playerToChange == 1){
-            p1Symbol.src = "../assets/tic_tac_toe/images/svg/o_img.svg";
-            p2Symbol.src = "../assets/tic_tac_toe/images/svg/x_img.svg";
+            p1Symbol.src = "assets/tic_tac_toe/images/svg/o_img.svg";
+            p2Symbol.src = "assets/tic_tac_toe/images/svg/x_img.svg";
             p1ToSelectSymbol.style.display = "none";
             p1SymbolSelected = "o"
             p2SymbolSelected = "x"
         }
         else if(playerToChange == 2){
-            p2Symbol.src = "../assets/tic_tac_toe/images/svg/o_img.svg";
-            p1Symbol.src = "../assets/tic_tac_toe/images/svg/x_img.svg";
+            p2Symbol.src = "assets/tic_tac_toe/images/svg/o_img.svg";
+            p1Symbol.src = "assets/tic_tac_toe/images/svg/x_img.svg";
             p2ToSelectSymbol.style.display = "none";
             p1SymbolSelected = "x"
             p2SymbolSelected = "o"

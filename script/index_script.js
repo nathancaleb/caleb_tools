@@ -6,6 +6,7 @@ const calendarAppBtn = document.querySelector("#calendar_app_button")
 const wordsAppBtn = document.querySelector("#words_app_button")
 const drawNumbersAppBtn = document.querySelector("#draw_numbers_app_button")
 const diceAppBtn = document.querySelector("#dice_app_button")
+const tictactoeAppBtn = document.querySelector("#tictactoe_app_button")
 
 calculatorAppBtn.addEventListener("click", function(){
     $(mainScreen).load('apps/calculator.html');
@@ -32,3 +33,7 @@ diceAppBtn.addEventListener("click", function(){
     document.title = document.title + " - Dice"
 })
 
+tictactoeAppBtn.addEventListener("click", function(){
+    $(mainScreen).load('apps/tic_tac_toe.html');
+    document.title = document.title + " - Tic-Tac-Toe"
+})
