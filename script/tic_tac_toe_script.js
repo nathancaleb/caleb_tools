@@ -31,6 +31,8 @@ let playStart = false;
 let playerToChange = 0
 // Variavel para definir o jogador atual
 let currentPlayer = 1
+// Variavel para contar o numero de turnos jogados - verificar se deu velha
+let turnsPlayed = 0
 // Variaveis que definem o simbolo determinado
 let p1SymbolSelected = "x"
 let p2SymbolSelected = "o"
@@ -138,7 +140,7 @@ function winner(currentPlayer){
         modalText.appendChild(winnerText);
         victoryModalBox.appendChild(modalText);
 
-        p1ScoreText.innerHTML = p1Score;
+        p1ScoreText.innerHTML = p1Score;  
 
         victoryModal.style.display = "flex";
 
@@ -154,7 +156,7 @@ function winner(currentPlayer){
         modalText.appendChild(winnerText);
         victoryModalBox.appendChild(modalText);
 
-        p2ScoreText.innerHTML = p2Score;
+        p2ScoreText.innerHTML = p2Score;   
 
         victoryModal.style.display = "flex";
 
@@ -165,6 +167,8 @@ function winner(currentPlayer){
 
 function checkVictory(boxClicked, currentPlayer){
     
+    turnsPlayed = turnsPlayed + 1;
+
     if(boxClicked == 1){
         board[0][0] = currentPlayer;
     }
@@ -216,6 +220,18 @@ function checkVictory(boxClicked, currentPlayer){
     }
     else if(board[0][2] == board[1][1] && board[0][2] == board[2][0]){
         winner(currentPlayer);
+    }
+    else if(turnsPlayed == 9){
+        const modalText = document.createElement("span");
+        const drawText = document.createTextNode("DEU VELHA!");
+        
+        modalText.classList.add("modal_text")
+        modalText.appendChild(drawText);
+        victoryModalBox.appendChild(modalText);
+
+        victoryModal.style.display = "flex";
+
+        checkModal();
     }
     else{
         console.log("continue")
@@ -416,6 +432,7 @@ function resetAll(){
     playStart = false;
     playerToChange = 0;
     currentPlayer = 1;
+    turnsPlayed = 0;
     p1SymbolSelected = "x";
     p2SymbolSelected = "o";
     checkIsClicked = [];
