@@ -1,0 +1,185 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+}
+
+.main_temperature{
+    color: white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 50px;
+    border: white 1px solid;
+}
+
+.temperature_container{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    width: 50%;
+}
+
+.temperature_box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.temperature_input{
+    width: 100px;
+    height: 70px;
+    background-color: #383838;
+    font-size: 25px;
+    border-radius: 30px;
+    border: none;
+    cursor: text;
+    color: #ffffff;
+    font-size: 25px;
+    text-align: center;
+}
+
+.temperature_input:focus{
+    border: solid 3px #004e92;
+    outline: none;
+}
+
+.temperarature_result_text{
+    width: 100px;
+    height: 70px;
+    background-color: #383838;
+    font-size: 25px;
+    border-radius: 30px;
+    border: none;
+    color: #ffffff;
+    font-size: 25px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ---- CRIANDO NOVO SELECT ---- */
+
+#temperature_type_select label,
+#temperature_type_select_final label{
+  font-size: 0.9rem;
+  letter-spacing: 0.0225rem;
+}
+
+#select_button,
+#select_button_final{
+  margin-top: 0.5rem;
+  display: flex;
+  padding: 0.75rem;
+  align-items: center;
+  justify-content: space-between;
+
+  border-radius: 0.375rem;
+  border: 1px solid #1b1b1b;
+  background-color: #383838;
+}
+
+#selected_value,
+#selected_value_final{
+    color: #ffffff;
+    font-size: 0.875rem;
+    letter-spacing: 0.02625rem;
+    width: 11.25rem;
+}
+
+#open_options_button:focus + #select_button, #open_options_button:checked + #select_button,
+#open_options_button_final:focus + #select_button_final, #open_options_button_final:checked + #select_button_final{
+    outline: 1px solid #004e92;
+}
+
+#temperature_type_select:has( #open_options_button:checked) label,
+#temperature_type_select_final:has( #open_options_button_final:checked) label{
+    color: #004e92;
+}
+
+#temperature_type_select,
+#temperature_type_select_final{
+    position: relative;
+}
+
+#open_options_button,
+#open_options_button_final{
+    all: unset; /* REMOVER TODAS AS PROPRIEDADES CSS DO CHECKBOX*/
+    position: absolute;
+    inset: 0;
+    cursor: pointer;
+    z-index: 3;
+}
+
+#temperature_options_list,
+#temperature_options_list_final{
+    margin-top: 0.25rem;
+
+    border-radius: 0.375rem;
+    border: 1px solid #1b1b1b;
+    background: #383838;
+
+    display: none;
+}
+
+.temperature_option,
+.temperature_option_final{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.3rem;
+    width: 100%;
+    border-bottom: 1px solid #1b1b1b;
+    position: relative;
+}
+
+.temperature_option label,
+.temperature_option_final label{
+    color: #ffffff;
+}
+
+.temperature_option:has(input:checked), .temperature_option:hover,
+.temperature_option_final:has(input:checked), .temperature_option_final:hover{
+    border-bottom: 1px solid #0073c0;
+    background-color: #0073c0;
+}
+
+.temperature_option:has(input:focus),
+.temperature_option_final:has(input:focus){
+    outline: 1px solid #002b50;
+}
+
+.temperature_option input[type="radio"],
+.temperature_option_final input[type="radio"]{
+    all: unset;
+    position: absolute;
+    inset: 0;
+    cursor: pointer;
+}
+
+#temperature_type_select:has(#open_options_button:checked) + #temperature_options_list,
+#temperature_type_select_final:has(#open_options_button_final:checked) + #temperature_options_list_final{
+    display: block;
+}
+
+.select_box:has(.temperature_option input:checked) #temperature_type_select label,
+.select_box_final:has(.temperature_option_final input:checked) #temperature_type_select_final label{
+    color: #004e92;
+}
+
+.select_box:has(.temperature_option input:checked) #selected-value,
+.select_box_final:has(.temperature_option_final input:checked) #selected-value_final{
+    color: #ffffff;
+}

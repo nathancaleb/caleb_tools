@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/temperature_style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@100;400&family=Rubik&display=swap" rel="stylesheet">
+    <title>Temperature</title>
+</head>
+<body>
+    <main class="main_temperature">
+        <section class="temperature_container">
+            <div class="temperature_box">
+                <input type="text" class="temperature_input" id="temperature_input">
+                <div class="select_box">
+                    <div id="temperature_type_select">
+                        <label for="open_options_button">Tipo de Temperatura:</label>
+                        <input type="checkbox" id="open_options_button">
+
+                        <div id="select_button">
+                            <div id="selected_value">Selecione Temperatura:</div>
+                        </div>
+                    </div>
+
+                    <ul id="temperature_options_list">
+                        <li class="temperature_option">
+                            <input type="radio" name="temperature" value="celcius" data-label="Celcius">
+                            <span class="temperature_option_symbol">°C -</span>
+                            <span class="temperature_option_text">Celcius</span>
+                        </li>
+                        <li class="temperature_option">
+                            <input type="radio" name="temperature" value="fahrenheit" data-label="Fahrenheit">
+                            <span class="temperature_option_symbol">°F -</span>
+                            <span class="temperature_option_text">Fahrenheit</span>
+                        </li>
+                        <li class="temperature_option">
+                            <input type="radio" name="temperature" value="kelvin" data-label="Kelvin">
+                            <span class="temperature_option_symbol">K -</span>
+                            <span class="temperature_option_text">Kelvin</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="temperature_box">
+                <span class="temperarature_result_text">50</span>
+                <div class="select_box_final">
+                    <div id="temperature_type_select_final">
+                        <label for="open_options_button_final">Tipo de Temperatura:</label>
+                        <input type="checkbox" id="open_options_button_final">
+
+                        <div id="select_button_final">
+                            <div id="selected_value_final">Selecione Temperatura:</div>
+                        </div>
+                    </div>
+
+                    <ul id="temperature_options_list_final">
+                        <li class="temperature_option_final">
+                            <input type="radio" name="temperature_final" value="celcius" data-label="Celcius">
+                            <span class="temperature_option_symbol">°C -</span>
+                            <span class="temperature_option_text">Celcius</span>
+                        </li>
+                        <li class="temperature_option_final">
+                            <input type="radio" name="temperature_final" value="fahrenheit" data-label="Fahrenheit">
+                            <span class="temperature_option_symbol">°F -</span>
+                            <span class="temperature_option_text">Fahrenheit</span>
+                        </li>
+                        <li class="temperature_option_final">
+                            <input type="radio" name="temperature_final" value="kelvin" data-label="Kelvin">
+                            <span class="temperature_option_symbol">K -</span>
+                            <span class="temperature_option_text">Kelvin</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+            <!-- <div class="temperature_select_container">
+                <div class="temperature_select_box">
+                    <select name="temperature_start" id="temperature_start">
+                        <option value="celcius">Celcius</option>
+                        <option value="fahrenheit">Fahrenheit</option>
+                        <option value="kelvin">Kelvin</option>
+                    </select>
+                </div>
+                <div class="temperature_select_box">
+                    <select name="temperature_end" id="temperature_end">
+                        <option value="celcius">Celcius</option>
+                        <option value="fahrenheit">Fahrenheit</option>
+                        <option value="kelvin">Kelvin</option>
+                    </select>
+                </div>
+            </div> -->
+        </section>
+    </main>
+</body>
+<script src="../script/temperature_script.js"></script>
+</html>

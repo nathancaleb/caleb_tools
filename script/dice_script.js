@@ -15,7 +15,7 @@ let diceRolled = false;
 // variavel para armazenar o numero de vezes que o dado foi rolado
 let contRoll = 0
 
-// FUNÇÃO p/ Limpa os botões marcados e dados ja criados
+// FUNÇÃO p/ Limpa os botões marcados e dados ja criados 
 function clearAll(){
     dSixBtn.classList.remove("selected_dice_option");
     dTwentyBtn.classList.remove("selected_dice_option");
