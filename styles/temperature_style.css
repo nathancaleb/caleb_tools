@@ -18,7 +18,6 @@ body{
     align-items: flex-start;
     justify-content: center;
     padding-top: 50px;
-    border: white 1px solid;
 }
 
 .temperature_container{
@@ -38,7 +37,7 @@ body{
 }
 
 .temperature_input{
-    width: 100px;
+    width: 300px;
     height: 70px;
     background-color: #383838;
     font-size: 25px;
@@ -47,7 +46,14 @@ body{
     cursor: text;
     color: #ffffff;
     font-size: 25px;
-    text-align: center;
+    text-align: center;   
+}
+
+/* REMOVER SETAS DO INPUT NUMBER*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .temperature_input:focus{
@@ -56,7 +62,7 @@ body{
 }
 
 .temperarature_result_text{
-    width: 100px;
+    width: 300px;
     height: 70px;
     background-color: #383838;
     font-size: 25px;
@@ -71,6 +77,14 @@ body{
 }
 
 /* ---- CRIANDO NOVO SELECT ---- */
+
+#temperature_type_select,
+#temperature_type_select_final{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
 #temperature_type_select label,
 #temperature_type_select_final label{

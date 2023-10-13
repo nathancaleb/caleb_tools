@@ -13,7 +13,7 @@
     <main class="main_temperature">
         <section class="temperature_container">
             <div class="temperature_box">
-                <input type="text" class="temperature_input" id="temperature_input">
+                <input type="number" class="temperature_input" id="temperature_input">
                 <div class="select_box">
                     <div id="temperature_type_select">
                         <label for="open_options_button">Tipo de Temperatura:</label>
@@ -26,17 +26,17 @@
 
                     <ul id="temperature_options_list">
                         <li class="temperature_option">
-                            <input type="radio" name="temperature" value="celcius" data-label="Celcius">
+                            <input type="radio" name="temperature" value="celcius" data-label="Celcius" id="celcius_start">
                             <span class="temperature_option_symbol">°C -</span>
                             <span class="temperature_option_text">Celcius</span>
                         </li>
                         <li class="temperature_option">
-                            <input type="radio" name="temperature" value="fahrenheit" data-label="Fahrenheit">
+                            <input type="radio" name="temperature" value="fahrenheit" data-label="Fahrenheit" id="fahrenheit_start">
                             <span class="temperature_option_symbol">°F -</span>
                             <span class="temperature_option_text">Fahrenheit</span>
                         </li>
                         <li class="temperature_option">
-                            <input type="radio" name="temperature" value="kelvin" data-label="Kelvin">
+                            <input type="radio" name="temperature" value="kelvin" data-label="Kelvin" id="kelvin_start">
                             <span class="temperature_option_symbol">K -</span>
                             <span class="temperature_option_text">Kelvin</span>
                         </li>
@@ -44,7 +44,7 @@
                 </div>
             </div>
             <div class="temperature_box">
-                <span class="temperarature_result_text">50</span>
+                <span class="temperarature_result_text"></span>
                 <div class="select_box_final">
                     <div id="temperature_type_select_final">
                         <label for="open_options_button_final">Tipo de Temperatura:</label>
@@ -57,17 +57,17 @@
 
                     <ul id="temperature_options_list_final">
                         <li class="temperature_option_final">
-                            <input type="radio" name="temperature_final" value="celcius" data-label="Celcius">
+                            <input type="radio" name="temperature_final" value="celcius" data-label="Celcius" id="celcius_end">
                             <span class="temperature_option_symbol">°C -</span>
                             <span class="temperature_option_text">Celcius</span>
                         </li>
                         <li class="temperature_option_final">
-                            <input type="radio" name="temperature_final" value="fahrenheit" data-label="Fahrenheit">
+                            <input type="radio" name="temperature_final" value="fahrenheit" data-label="Fahrenheit" id="fahrenheit_end">
                             <span class="temperature_option_symbol">°F -</span>
                             <span class="temperature_option_text">Fahrenheit</span>
                         </li>
                         <li class="temperature_option_final">
-                            <input type="radio" name="temperature_final" value="kelvin" data-label="Kelvin">
+                            <input type="radio" name="temperature_final" value="kelvin" data-label="Kelvin" id="kelvin_end">
                             <span class="temperature_option_symbol">K -</span>
                             <span class="temperature_option_text">Kelvin</span>
                         </li>
@@ -94,5 +94,6 @@
         </section>
     </main>
 </body>
+<script src="../script/temperature_select_script.js"></script>
 <script src="../script/temperature_script.js"></script>
 </html>

@@ -1,32 +1,74 @@
-// SELECT INITIAL
-let select = document.querySelector('.select_box');
-let selectedValue = document.getElementById('selected_value');
-let openOptions = document.getElementById('open_options_button');
-let inputsOptions = document.querySelectorAll('.temperature_option input')
-// SELECT FINAL
-let selectFinal = document.querySelector('.select_box_final');
-let selectedValueFinal = document.getElementById('selected_value_final');
-let openOptionsFinal = document.getElementById('open_options_button_final');
-let inputsOptionsFinal = document.querySelectorAll('.temperature_option_final input')
+// DOM ELEMENTS
+const inputTemperature = document.querySelector("#temperature_input");
+const temperatureConvertText = document.querySelector(".temperarature_result_text");
+const temperatureInitial = document.getElementsByName("temperature");
+const temperatureFinal = document.getElementsByName("temperature_final");
 
-// Para SELECT INITIAL
-inputsOptions.forEach(input => {
-  input.addEventListener('click', event => {
-    selectedValue.textContent = input.dataset.label
+// VARIAVEL VAI RECEBER O VALOR DA TEMPERATURA
+let temperatureValue = 0;
 
-    const isMouseOrTouch = event.pointerType == "mouse" || event.pointerType == "touch"
+// VARIAVEL P/ TEMPERATURAS SELECIONADAS
+let temperatureInitialSelected = ""
+let temperatureFinalSelected = ""
 
-    isMouseOrTouch && openOptions.click()
-  })
+// // VERIFICA SE A OPERAÇÃO PODE SER REALIZADA
+// let inputStatus = false;
+// let operationInitialStatus = false;
+// let operationFinalStatus = false;
+
+// FUNÇÃO PARA CHECAR VALOR INPUTADO DE TEMPERATURA
+
+function temperatureValueCheck(){
+    temperatureValue = parseInt(inputTemperature.value)
+
+    if(Number.isInteger(temperatureValue)){
+        // VERIFICAR TEMPERATURA INICIAL ESCOLHIDA
+        for(let i = 0; i < temperatureInitial.length; i++){
+            if(temperatureInitial[i].checked){
+                temperatureInitialSelected = temperatureInitial[i].value;
+            }
+        }
+        // VERIFICAR TEMPERATURA FINAL ESCOLHIDA
+        for(let i = 0; i < temperatureFinal.length; i++){
+            if(temperatureFinal[i].checked){
+                temperatureFinalSelected = temperatureInitial[i].value;
+            }
+        }   
+    }
+}
+
+// FUNÇÃO PARA CONVERSÃO
+function temperatureConversion(){
+    if(temperatureInitialSelected == "celcius"){
+        if(temperatureFinalSelected == "fahrenheit"){
+            const conversionFinal = (temperatureValue * 9/5) + 32;
+            temperatureConvertText.innerHTML = conversionFinal;
+        }
+    }
+}
+
+temperatureInitial.forEach(rb=>rb.addEventListener("change", function(){
+    temperatureValueCheck();
+    temperatureConversion();
+}))
+
+temperatureFinal.forEach(rb=>rb.addEventListener("change", function(){
+    temperatureValueCheck();
+    temperatureConversion();
+}))
+
+inputTemperature.addEventListener("keyup",() => {
+    
+    temperatureValueCheck();
+    temperatureConversion();
 })
 
-// Para SELECT FINAL
-inputsOptionsFinal.forEach(input => {
-  input.addEventListener('click', event => {
-    selectedValueFinal.textContent = input.dataset.label
-
-    const isMouseOrTouchFinal = event.pointerType == "mouse" || event.pointerType == "touch"
-
-    isMouseOrTouchFinal && openOptionsFinal.click()
-  })
-})
+// CASO BACKSPACE OU DELETE FOR CLICADO QUANDO INPUT ISNAN, APAGA TUDO
+// inputTemperature.addEventListener("keydown", function(e){
+//     if(isNaN(inputTemperature.value)){
+//         if(e.key == "Backspace" || e.key == "delete"){
+//             console.log("bs ou del clicados")
+//             inputTemperature.value = "";
+//         }
+//     }
+// })
