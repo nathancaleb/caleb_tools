@@ -6,6 +6,7 @@ const calendarAppBtn = document.querySelector("#calendar_app_button")
 const wordsAppBtn = document.querySelector("#words_app_button")
 const drawNumbersAppBtn = document.querySelector("#draw_numbers_app_button")
 const temperatureAppBtn = document.querySelector("#temperature_app_button")
+const unitConverterAppBtn = document.querySelector("#unit_converter_app_button")
 const diceAppBtn = document.querySelector("#dice_app_button")
 const tictactoeAppBtn = document.querySelector("#tictactoe_app_button")
 
@@ -32,6 +33,11 @@ drawNumbersAppBtn.addEventListener("click", function(){
 temperatureAppBtn.addEventListener("click", function(){
     $(mainScreen).load('apps/temperature.html');
     document.title = document.title + " - Temperature"
+})
+
+unitConverterAppBtn.addEventListener("click", function(){
+    $(mainScreen).load('apps/unit_converter.html');
+    document.title = document.title + " - PX to REM"
 })
 
 diceAppBtn.addEventListener("click", function(){
