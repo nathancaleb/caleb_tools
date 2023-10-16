@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/unit_converter_style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@100;400&family=Rubik&display=swap" rel="stylesheet">
+    <title>PX to REM</title>
+</head>
+<body>
+    <main class="main_unit_converter">
+        <section class="unit_converter_container">
+            <div class="unit_converter_box">
+                <input type="number" class="unit_converter_input" id="unit_converter_input">    
+            </div>
+            <div class="unit_converter_box">
+                <span class="unit_converter_result_text"></span>
+            </div>
+        </section>
+        <section class="unit_converter_btn_section">
+            <label class="unit_converter_status" id="unit_converter_start">px</label>
+            <div class="unit_converter_btn_box" onclick="changeUnit()">
+                <img src="../assets/unit_converter/change_BTN.svg" alt="Imagem de setas trocando">
+            </div>
+            <label class="unit_converter_status" id="unit_converter_final">rem</label>
+        </section>
+    </main>
+</body>
+<script src="../script/unit_converter_script.js"></script>
+</html>
