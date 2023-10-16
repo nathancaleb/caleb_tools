@@ -59,9 +59,11 @@ function menuChangeSymbol(player){
 
     if(playStart == false){
         if(player == 1){
+            p2ToSelectSymbol.style.display = "none";
             p1ToSelectSymbol.style.display = "flex";
         }
         if(player == 2){
+            p1ToSelectSymbol.style.display = "none";
             p2ToSelectSymbol.style.display = "flex";
         }
     }
