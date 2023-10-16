@@ -37,11 +37,45 @@ function temperatureValueCheck(){
     }
 }
 
+
 // FUNÇÃO PARA CONVERSÃO
 function temperatureConversion(){
     if(temperatureInitialSelected == "celcius"){
-        if(temperatureFinalSelected == "fahrenheit"){
+        if(temperatureFinalSelected == "celcius"){
+            alert("Temperatura inicial é igual a temperatura final, favor selecione outra temperatura");
+        }
+        else if(temperatureFinalSelected == "fahrenheit"){
             const conversionFinal = (temperatureValue * 9/5) + 32;
+            temperatureConvertText.innerHTML = conversionFinal;
+        }
+        else if(temperatureFinalSelected == "kelvin"){
+            const conversionFinal = temperatureValue + 273.15;
+            temperatureConvertText.innerHTML = conversionFinal;
+        }
+    }
+    else if(temperatureInitialSelected == "fahrenheit"){
+        if(temperatureFinalSelected == "fahrenheit"){
+            alert("Temperatura inicial é igual a temperatura final, favor selecione outra temperatura");
+        }
+        else if(temperatureFinalSelected == "celcius"){
+            const conversionFinal = (temperatureValue - 32) * 5/9;
+            temperatureConvertText.innerHTML = conversionFinal;
+        }
+        else if(temperatureFinalSelected == "kelvin"){
+            const conversionFinal = (temperatureValue - 32) * 5/9 + 273.15;
+            temperatureConvertText.innerHTML = conversionFinal;
+        }
+    }
+    else if(temperatureInitialSelected == "kelvin"){
+        if(temperatureFinalSelected == "kelvin"){
+            alert("Temperatura inicial é igual a temperatura final, favor selecione outra temperatura");
+        }
+        else if(temperatureFinalSelected == "celcius"){
+            const conversionFinal = temperatureValue - 273.15;
+            temperatureConvertText.innerHTML = conversionFinal;
+        }
+        else if(temperatureFinalSelected == "fahrenheit"){
+            const conversionFinal = (temperatureValue - 273.15) * 9/5 + 32;
             temperatureConvertText.innerHTML = conversionFinal;
         }
     }
