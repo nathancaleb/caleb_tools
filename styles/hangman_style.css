@@ -1,0 +1,181 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+}
+
+.main_hangman{
+    color: white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 50px;
+    gap: 50px;
+}
+
+.hangman_secret_word_section{
+    position: absolute;
+    border: solid 1px #e2e2e2;
+    display: flex; /* DISPLAY DA PALAVRA SECRETA */
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+    height: 20%;
+    background-color: #5353534b;
+    border-radius: 30px;
+    color: #ffffff;
+    gap: 15px;
+}
+
+.secret_word_input{
+    width: 500px;
+    height: 70px;
+    background-color: #383838;
+    font-size: 30px;
+    border-radius: 30px;
+    border: none;
+    cursor: text;
+    color: #ffffff;
+    font-size: 25px;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.secret_word_input:focus{
+    border: solid 3px #004e92;
+    outline: none;
+}
+
+.secret_word_input::placeholder{
+    letter-spacing: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.hangman_start_btn{
+    background-color: #3a3a3a;
+    color: #ffffff;
+    text-transform: uppercase;
+    width: 150px;
+    height: 50px;
+    border: solid #ffffff 2px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+.hangman_start_btn:hover{
+    background: linear-gradient(to top, #004e92, #000428);
+}
+
+/* GAME STYLE */
+
+.hangman_game_section{
+    display: none; /* DISPLAY DA FORCA */
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.hangman_gallow_box{
+    width: 30%;
+}
+
+#hangman_gallow_img{
+    width: 100%;
+}
+
+.hangman_word_box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.hangman_secret_letter{
+    border-bottom:#ffffff 3px solid;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.correct_letter{
+    color:#0074da;
+}
+
+/* KEYBOARD STYLE*/
+
+.hangman_keyboard_section{
+    display: none; /* DISPLAY DO TECLADO */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 80%;
+}
+
+.hangman_keyboard_line{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.hangman_letter{
+    border: solid 2px #cacaca;
+    background-color: #3a3a3a;
+    width: 45px;
+    height: 50px;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    cursor: pointer;
+}
+
+.hangman_letter:hover{
+    background-color: #004e92;
+    color:#ffffff;
+}
+
+.correct_letter_key{
+    background-color: #25befa;
+    color: #ffffff;
+    cursor:auto;
+}
+
+.correct_letter_key:hover{
+    background-color: #25befa;
+    color: #ffffff;
+    cursor:auto;
+}
+
+.wrong_letter_key{
+    background-color: #FF0000;
+    color: #000000;
+    cursor:auto;
+}
+
+.wrong_letter_key:hover{
+    background-color: #FF0000;
+    color: #000000;
+    cursor:auto;
+}

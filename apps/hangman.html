@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/hangman_style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@100;400&family=Rubik&display=swap" rel="stylesheet">
+    <title>Hangman</title>
+</head>
+<body>
+    <main class="main_hangman">
+        <section class="hangman_secret_word_section">
+            <input type="password" class="secret_word_input" placeholder="Digite a palavra a ser adivinhada">
+            <button class="hangman_start_btn" onclick="startGame()">Start</button>
+        </section>
+        <section class="hangman_game_section">
+            <div class="hangman_gallow_box">
+                <img src="../assets/hangman/images/png/gallow.png" alt="Imagem da Forca" id="hangman_gallow_img">
+            </div>
+            <div class="hangman_word_box">
+                <!-- <div class="hangman_secret_letter">p</div>
+                <div class="hangman_secret_letter">a</div>
+                <div class="hangman_secret_letter">s</div>
+                <div class="hangman_secret_letter">s</div>
+                <div class="hangman_secret_letter">a</div>
+                <div class="hangman_secret_letter">r</div>
+                <div class="hangman_secret_letter">o</div> -->
+            </div>
+        </section>
+        <section class="hangman_keyboard_section">
+            <div class="hangman_keyboard_line">
+                <div class="hangman_letter">q</div>
+                <div class="hangman_letter">w</div>
+                <div class="hangman_letter">e</div>
+                <div class="hangman_letter">r</div>
+                <div class="hangman_letter">t</div>
+                <div class="hangman_letter">y</div>
+                <div class="hangman_letter">u</div>
+                <div class="hangman_letter">i</div>
+                <div class="hangman_letter">o</div>
+                <div class="hangman_letter">p</div>
+            </div>
+            <div class="hangman_keyboard_line">
+                <div class="hangman_letter">a</div>
+                <div class="hangman_letter">s</div>
+                <div class="hangman_letter">d</div>
+                <div class="hangman_letter">f</div>
+                <div class="hangman_letter">g</div>
+                <div class="hangman_letter">h</div>
+                <div class="hangman_letter">j</div>
+                <div class="hangman_letter">k</div>
+                <div class="hangman_letter">l</div>
+            </div>
+            <div class="hangman_keyboard_line">
+                <div class="hangman_letter">z</div>
+                <div class="hangman_letter">x</div>
+                <div class="hangman_letter">c</div>
+                <div class="hangman_letter">v</div>
+                <div class="hangman_letter">b</div>
+                <div class="hangman_letter">n</div>
+                <div class="hangman_letter">m</div>
+            </div>
+        </section>
+    </main>
+</body>
+<script src="../script/hangman_style.js"></script>
+</html>
