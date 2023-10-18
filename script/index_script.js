@@ -1,14 +1,15 @@
-const mainScript = document.querySelector("#main_script")
-const mainScreen = document.querySelector(".main_container")
+const mainScript = document.querySelector("#main_script");
+const mainScreen = document.querySelector(".main_container");
 
-const calculatorAppBtn = document.querySelector("#calculator_app_button")
-const calendarAppBtn = document.querySelector("#calendar_app_button")
-const wordsAppBtn = document.querySelector("#words_app_button")
-const drawNumbersAppBtn = document.querySelector("#draw_numbers_app_button")
-const temperatureAppBtn = document.querySelector("#temperature_app_button")
-const unitConverterAppBtn = document.querySelector("#unit_converter_app_button")
-const diceAppBtn = document.querySelector("#dice_app_button")
-const tictactoeAppBtn = document.querySelector("#tictactoe_app_button")
+const calculatorAppBtn = document.querySelector("#calculator_app_button");
+const calendarAppBtn = document.querySelector("#calendar_app_button");
+const wordsAppBtn = document.querySelector("#words_app_button");
+const drawNumbersAppBtn = document.querySelector("#draw_numbers_app_button");
+const temperatureAppBtn = document.querySelector("#temperature_app_button");
+const unitConverterAppBtn = document.querySelector("#unit_converter_app_button");
+const diceAppBtn = document.querySelector("#dice_app_button");
+const tictactoeAppBtn = document.querySelector("#tictactoe_app_button");
+const hangmanAppBtn = document.querySelector("#hangman_app_button");
 
 calculatorAppBtn.addEventListener("click", function(){
     $(mainScreen).load('apps/calculator.html');
@@ -48,4 +49,9 @@ diceAppBtn.addEventListener("click", function(){
 tictactoeAppBtn.addEventListener("click", function(){
     $(mainScreen).load('apps/tic_tac_toe.html');
     document.title = document.title + " - Tic-Tac-Toe"
+})
+
+hangmanAppBtn.addEventListener("click", function(){
+    $(mainScreen).load('apps/hangman.html');
+    document.title = document.title + " - Hangman"
 })

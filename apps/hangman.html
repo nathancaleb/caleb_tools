@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/hangman_style.css">
+    <link rel="stylesheet" href="styles/hangman_style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@100;400&family=Rubik&display=swap" rel="stylesheet">
@@ -12,21 +12,19 @@
 <body>
     <main class="main_hangman">
         <section class="hangman_secret_word_section">
-            <input type="password" class="secret_word_input" placeholder="Digite a palavra a ser adivinhada">
-            <button class="hangman_start_btn" onclick="startGame()">Start</button>
+            <input type="password" class="secret_word_input" placeholder="Digite a palavra a ser adivinhada" pattern="[A-Za-z]" title="Favor, digitar apenas letras de A a Z ">
+            <button class="hangman_btn" id="hangman_start_btn" onclick="startGame()">Start</button>
         </section>
         <section class="hangman_game_section">
             <div class="hangman_gallow_box">
                 <img src="../assets/hangman/images/png/gallow.png" alt="Imagem da Forca" id="hangman_gallow_img">
             </div>
-            <div class="hangman_word_box">
-                <!-- <div class="hangman_secret_letter">p</div>
-                <div class="hangman_secret_letter">a</div>
-                <div class="hangman_secret_letter">s</div>
-                <div class="hangman_secret_letter">s</div>
-                <div class="hangman_secret_letter">a</div>
-                <div class="hangman_secret_letter">r</div>
-                <div class="hangman_secret_letter">o</div> -->
+            <div class="hangman_word_box"></div>
+        </section>
+        <section class="modal_result_section">
+            <div class="modal_result_box">
+                <h1 id="result_text"></h1>
+                <button class="hangman_btn" id="close_modal_result" onclick="resetGame()">jogar novamente</button>
             </div>
         </section>
         <section class="hangman_keyboard_section">
@@ -65,5 +63,5 @@
         </section>
     </main>
 </body>
-<script src="../script/hangman_style.js"></script>
+<script src="script/hangman_style.js"></script>
 </html>

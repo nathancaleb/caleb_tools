@@ -61,7 +61,7 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
-.hangman_start_btn{
+.hangman_btn{
     background-color: #3a3a3a;
     color: #ffffff;
     text-transform: uppercase;
@@ -73,7 +73,7 @@ body{
     font-size: 25px;
 }
 
-.hangman_start_btn:hover{
+.hangman_btn:hover{
     background: linear-gradient(to top, #004e92, #000428);
 }
 
@@ -178,4 +178,44 @@ body{
     background-color: #FF0000;
     color: #000000;
     cursor:auto;
+}
+
+.modal_result_section{
+    position: absolute;
+    top: 10px;
+    width: 40%;
+    height: 20%;
+    border: solid 1px #383838;
+    background-color: #3a3a3a;
+    border-radius: 10px;
+    display: none; /* DISPLAY DO MODAL */
+    align-items: center;
+    justify-content: center;
+}
+
+.modal_result_box{
+    border: solid 3px #cacaca;
+    border-radius: 30px;
+    width: 95%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+    gap: 15px;
+}
+
+#result_text{
+    letter-spacing: 5px;
+    font-size: 40px;
+    color: #0074da;
+    text-shadow: 1px 1px 4px #000000;
+    text-transform: uppercase;
+}
+
+#close_modal_result{
+    width: 200px;
+    height: 50px;
+    font-size: 15px;
 }
