@@ -120,7 +120,6 @@ function checkClickedLetter(clickedLetter, clickedKey){
     }else{
         gameStarted = true;
         let letterChecked = checkLetter(clickedLetter, secretWord);
-        console.log(secretWord)
         changeKeyColor(clickedKey, letterChecked);
         checkResult();
     }

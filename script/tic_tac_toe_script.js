@@ -244,9 +244,10 @@ function playGame(boxClicked){
     
     // inicializando o game
     if(playStart == false){
-        
-        let x = 10;
+        // variavel que ira atribuir valores aos array de tabuleiro
+        let x = 10; //começa com 10 poís é o numero que vem depois do 9 que são os numeros de posições do tabuleiro do jogo da velha
 
+        // For ira adicionar numeros de 10 a 18 em cada uma das casas do tabulerio de forma respectiva para que não sejam de 1 a 9 e nenhum dos valores iguais, pois atraves deste array determinaremos qual valor esta igual ao artro
         for(let i = 0; i < board.length; i++){
             for(let j = 0; j < board[i].length; j++){
                 board[i][j] = x
